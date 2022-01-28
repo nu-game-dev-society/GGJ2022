@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 1797583260}
   - component: {fileID: 1797583259}
   m_Layer: 0
-  m_Name: wwww
+  m_Name: Shelf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
