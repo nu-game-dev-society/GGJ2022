@@ -98,31 +98,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.2 - up to date.
   sections: 01010100
-  customRes: {x: 300, y: 300}
-  resolutionFactor: 4
+  customRes: {x: 640, y: 360}
+  resolutionFactor: 3
   limitFramerate: -1
   skipFrames: 0
-  affineMapping: 1
+  affineMapping: 0
   clampAffine: 0
   affineBounds: 0
   polygonalDrawDistance: 0
   vertexInaccuracy: 30
   polygonInaccuracy: 2
-  colorDepth: 5
+  colorDepth: 4
   scanlines: 0
   scanlineIntensity: 5
   ditherTexture: {fileID: 0}
-  dithering: 1
+  dithering: 0
   ditherThreshold: 1
   ditherIntensity: 12
   maxDarkness: 20
   subtractFade: 0
-  favorRed: 1
+  favorRed: 0.73
   worldSpaceSnapping: 0
   postProcessing: 1
   verticalScanlines: 1
   shadowIntensity: 0.5
-  downscale: 1
+  downscale: 0
   snapCamera: 0
   camInaccuracy: 0.05
   camSnapping: 0
@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 4187890194337184541}
   - component: {fileID: 4187890194337184542}
   - component: {fileID: 4187890194337184543}
+  - component: {fileID: 912449468}
   m_Layer: 0
   m_Name: Jekyl
   m_TagString: Untagged
@@ -195,3 +196,20 @@ MonoBehaviour:
   cc: {fileID: 4187890194337184542}
   cam: {fileID: 4187890193267734660}
   speed: 4
+--- !u!114 &912449468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4187890194337184536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86b8fcc198ba9034daf222f3de2ee45f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  layers:
+    serializedVersion: 2
+    m_Bits: 64
+  cam: {fileID: 4187890193267734660}
+  interactionReach: 0.7
