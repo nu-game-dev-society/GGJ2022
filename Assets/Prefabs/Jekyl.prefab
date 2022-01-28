@@ -143,9 +143,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4187890194337184536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9938aa53ef3498f45b7f81d51a981f10, type: 3}
+  m_Script: {fileID: 11500000, guid: 59a1879d0c64bdc46ba1b2da9b657c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cc: {fileID: 4187890194337184542}
   cam: {fileID: 4187890193267734660}
-  speed: 4
+  speed: 10
