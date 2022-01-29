@@ -2481,23 +2481,6 @@ Transform:
   m_Father: {fileID: 5707639304864784947}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
---- !u!1 &1287053309 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4187890193267734663, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
-  m_PrefabInstance: {fileID: 4187890193429030051}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1287053314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287053309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1295076108
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4033,38 +4016,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6832114965956423942, guid: f60d9ca03fe9040948c8790f0d985448, type: 3}
   m_PrefabInstance: {fileID: 427769564}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &2124830520 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9064265061916312000, guid: 11ee5fbe57cfd44a88e17411a2a930f1, type: 3}
-  m_PrefabInstance: {fileID: 7450502380388098894}
-  m_PrefabAsset: {fileID: 0}
---- !u!135 &2124830521
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124830520}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.006131677
-  m_Center: {x: 0, y: 0, z: 0.0025}
---- !u!114 &2124830524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2124830520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dddd3cdc38809d4c9a17a7b3eaa8459, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ReceivedIngredients: []
-  canInteract: 1
 --- !u!1 &43022871915092650
 GameObject:
   m_ObjectHideFlags: 0
@@ -4196,6 +4147,10 @@ PrefabInstance:
       propertyPath: worldSpaceSnapping
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 377625248964951928, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
+      propertyPath: cfuStatus
+      value: Checking for updates...
+      objectReference: {fileID: 0}
     - target: {fileID: 4187890194337184536, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
       propertyPath: m_Name
       value: Jekyl
@@ -4243,6 +4198,14 @@ PrefabInstance:
     - target: {fileID: 4187890194337184541, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8847517777712799960, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
+      propertyPath: m_ClearFlags
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869388983027275529, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}
+      propertyPath: cfuStatus
+      value: Checking for updates...
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bd1925c8f80ae748aac0a3599f13b62, type: 3}

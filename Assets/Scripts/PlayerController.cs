@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public Transform cam;
     public float speed;
     public IInteractable currentItem;
+    public Transform heldItemRoot;
 
     void Start()
     {
@@ -45,6 +46,11 @@ public class PlayerController : MonoBehaviour
         if (this.currentItem == null)
         {
             this.currentItem = interactable;
+            if (this.currentItem is MonoBehaviour monoBehaviour)
+            {
+                monoBehaviour.gameObject.transform.parent = this.heldItemRoot;
+                monoBehaviour.gameObject.transform.localPosition = Vector3.zero;
+            }
         }
     }
 }
