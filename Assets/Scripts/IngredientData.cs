@@ -9,6 +9,9 @@ public class IngredientData : ScriptableObject
     public Guid Guid => this.guid;
     Guid guid = Guid.NewGuid();
 
-    string Name => this.ingredientName;
+    public string Name => this.ingredientName;
     [SerializeField] string ingredientName;
+
+    public string[] Clues => this.ingredientClues;
+    [SerializeField] string[] ingredientClues;
 }

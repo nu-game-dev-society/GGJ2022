@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   ingredientName: Apple
+  ingredientClues:
+  - APPLE PLZ

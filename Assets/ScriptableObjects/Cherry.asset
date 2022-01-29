@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Cherry
   m_EditorClassIdentifier: 
   ingredientName: Cherry
+  ingredientClues:
+  - Gumball but fruit

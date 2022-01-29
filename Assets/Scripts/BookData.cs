@@ -25,11 +25,11 @@ public class BookData
 
     public static string RandomTitle()
     {
-        return titles[Random.Range(0, titles.Count - 1)];
+        return titles[Random.Range(0, titles.Count)];
     }
 
     public static string RandomSubTitle()
     {
-        return subtitles[Random.Range(0, subtitles.Count - 1)];
+        return subtitles[Random.Range(0, subtitles.Count)];
     }
 }

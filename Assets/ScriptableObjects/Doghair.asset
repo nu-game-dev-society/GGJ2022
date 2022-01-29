@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Doghair
   m_EditorClassIdentifier: 
   ingredientName: Doghair
+  ingredientClues:
+  - Strands of dogus

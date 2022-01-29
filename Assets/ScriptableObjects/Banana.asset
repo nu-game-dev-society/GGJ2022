@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Banana
   m_EditorClassIdentifier: 
   ingredientName: Banana
+  ingredientClues:
+  - Curved yellow fruit
