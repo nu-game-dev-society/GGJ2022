@@ -73,4 +73,6 @@ public class TableController : MonoBehaviour, IInteractable
         }
         
     }
+
+    public bool CanInteract(PlayerController interactor) => interactor.currentItem is BookController;
 }
