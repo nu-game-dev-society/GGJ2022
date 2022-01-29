@@ -29,7 +29,7 @@ public class BookController : MonoBehaviour, IInteractable
 
     public Collider collider;
 
-    public void Interact(PlayerController interactor)
+    public void Interact(PlayerController interactor)  
     {
         interactor.Pickup(this);
     }

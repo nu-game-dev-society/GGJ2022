@@ -139,7 +139,7 @@ public class CauldronController : MonoBehaviour, IInteractable
         if (interactor.currentItem is IngredientController ingredient)
         {
             this.AddReceivedIngredient(ingredient.Data);
-            interactor.currentItem = null;
+            interactor.DropItem();
         }
         else
         {

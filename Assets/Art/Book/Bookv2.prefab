@@ -294,6 +294,7 @@ MonoBehaviour:
   audioSource: {fileID: 7863601211728297895}
   openClip: {fileID: 8300000, guid: 03f5751a1b12041ed8457e06b3b48753, type: 3}
   closeClip: {fileID: 8300000, guid: b4be9df77ca7740b7b0f7500a6923040, type: 3}
+  collider: {fileID: 0}
 --- !u!82 &7863601211728297895
 AudioSource:
   m_ObjectHideFlags: 0
@@ -533,8 +534,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281348144
-  m_fontColor: {r: 0.18867922, g: 0.18778922, b: 0.18778922, a: 1}
+    rgba: 4278848010
+  m_fontColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -769,7 +770,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4281348144
-  m_fontColor: {r: 0.18867922, g: 0.18778922, b: 0.18778922, a: 1}
+  m_fontColor: {r: 0.03773582, g: 0.03773582, b: 0.03773582, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

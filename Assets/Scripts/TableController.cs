@@ -25,7 +25,7 @@ public class TableController : MonoBehaviour, IInteractable
             return;
         }
 
-        interactor.currentItem = null;
+        interactor.DropItem();
 
         StartCoroutine(HandleBookPlacement(book));
     }

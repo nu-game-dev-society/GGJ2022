@@ -25,6 +25,16 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
+    internal void DropItem()
+    {
+        if (this.currentItem is MonoBehaviour monoBehaviour)
+        {
+            SetLayerRecursively(monoBehaviour.gameObject, LayerMask.NameToLayer("Interactable"));  
+        }
+
+        this.currentItem = null;
+    }
+
     float mouseY;
     void LateUpdate()
     {
@@ -47,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = enabled;
         cc.enabled = enabled;
-        if (enabled)
+        if (enabled) 
         {
             cam.localEulerAngles = Vector3.zero;
             mouseY = 0;
@@ -73,11 +83,25 @@ public class PlayerController : MonoBehaviour
         if (this.currentItem == null)
         {
             this.currentItem = interactable;
+            
             if (this.currentItem is MonoBehaviour monoBehaviour)
             {
                 monoBehaviour.gameObject.transform.parent = this.heldItemRoot;
                 monoBehaviour.gameObject.transform.localPosition = Vector3.zero;
+
+                SetLayerRecursively(monoBehaviour.gameObject, LayerMask.NameToLayer("PickedUp"));
             }
         }
     }
+
+    public void SetLayerRecursively(GameObject obj, int newLayer)
+    {
+        obj.layer = newLayer;
+
+        foreach(Transform child in obj.transform)
+        {
+            SetLayerRecursively(child.gameObject, newLayer);
+        }
+    }
+
 }
