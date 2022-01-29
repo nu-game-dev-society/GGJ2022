@@ -5,5 +5,5 @@ using UnityEngine;
 public interface IInteractable
 {
     void Select();
-    void Use();
+    Material[] GetMaterials();
 }

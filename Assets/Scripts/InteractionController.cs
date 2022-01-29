@@ -9,6 +9,8 @@ public class InteractionController : MonoBehaviour
     public Transform cam;
     public float interactionReach;
     public IInteractable currentInteractable;
+    [ColorUsage(true, true)]
+    public Color EmissiveColor;
     private void Update()
     {
         if (
@@ -42,10 +44,19 @@ public class InteractionController : MonoBehaviour
 
     private void HighlightInteractable(IInteractable interactable)
     {
-
+        Material[] mats = interactable.GetMaterials();
+        foreach (Material m in mats)
+        {
+            m.EnableKeyword("_EMISSION");
+            m.SetColor("_EmissionColor", EmissiveColor);
+        }
     }
     private void UnhighlightInteractable(IInteractable interactable)
     {
-
+        Material[] mats = interactable.GetMaterials();
+        foreach (Material m in mats)
+        {
+            m.DisableKeyword("_EMISSION");
+        }
     }
 }
