@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cover: {fileID: 1745393220283696402}
-  inside: {fileID: 2929592882888816276}
+  inside: {fileID: 3553265804720688712}
   bind: {fileID: 7140798848783855643}
   meshRenderer: {fileID: 3293039131521636967}
   materials:
@@ -340,7 +340,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6637726045332792222
 RectTransform:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3180787705344222894}
   m_LocalRotation: {x: 0.7071068, y: 0.7071068, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.00053}
+  m_LocalPosition: {x: 0, y: 0, z: 0.000429}
   m_LocalScale: {x: 0.009999996, y: 0.009999998, z: 0.009999995}
   m_Children: []
   m_Father: {fileID: 414486270070900006}
@@ -357,7 +357,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0002, y: 0.00193}
+  m_AnchoredPosition: {x: 0.0002, y: 0.002085}
   m_SizeDelta: {x: 0.4, y: 0.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &553054271502060579
@@ -576,7 +576,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3747435703388918431
 RectTransform:
   m_ObjectHideFlags: 0

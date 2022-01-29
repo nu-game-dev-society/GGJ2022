@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Flower
   m_EditorClassIdentifier: 
   ingredientName: Flower
+  ingredientClues:
+  - Pollen maker

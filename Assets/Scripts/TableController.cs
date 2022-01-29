@@ -25,10 +25,6 @@ public class TableController : MonoBehaviour, IInteractable
             return;
         }
 
-        if (interactor.currentItem is MonoBehaviour monoBehaviour)
-        {
-            monoBehaviour.transform.parent = null;
-        }
         interactor.currentItem = null;
 
         StartCoroutine(HandleBookPlacement(book));
@@ -47,6 +43,8 @@ public class TableController : MonoBehaviour, IInteractable
 
             CalcStackPositions();
         }
+
+        book.transform.parent = null;
 
         book.transform.position = bookPlacement.position;
         book.transform.rotation = bookPlacement.rotation;

@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Egg
   m_EditorClassIdentifier: 
   ingredientName: Egg
+  ingredientClues:
+  - Shelled youngling
