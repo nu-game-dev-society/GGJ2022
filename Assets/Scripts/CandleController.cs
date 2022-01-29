@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[ExecuteAlways]
 public class CandleController : MonoBehaviour
 {
-    private List<Candle> candles;
+    private static List<Candle> candles;
 
     // Start is called before the first frame update
     void Start()
@@ -13,32 +14,32 @@ public class CandleController : MonoBehaviour
         candles = FindObjectsOfType<Candle>().ToList();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void BlowOutRandom()
+    public static Candle BlowOutRandom()
     {
         IEnumerable<Candle> onCandles = candles.Where((candle) => candle.on);
 
         if (onCandles.Count() == 0)
         {
-            Debug.Log("No candles to blow out");
-            return;
+            Debug.LogError("No candles to blow out");
+            return null;
         }
 
         int toSkip = Random.Range(0, onCandles.Count());
         Candle candle = candles.Where((candle) => candle.on).Skip(toSkip).Take(1).First();
         candle.on = false;
+        return candle;
     }
 
-    public void SetAll(bool onState)
+    public static void SetAll(bool onState)
     {
         foreach (Candle candle in candles)
         {
             candle.on = onState;
         }
+    }
+
+    public static int CountLitCandles()
+    {
+        return candles.Where((candle) => candle.on).Count();
     }
 }

@@ -10,17 +10,17 @@ public class CandleControllerEditor : Editor
     {
         if (GUILayout.Button("Turn all on") && Application.isPlaying)
         {
-            ((CandleController)target).SetAll(true);
+            CandleController.SetAll(true);
         }
 
         if (GUILayout.Button("Turn all off") && Application.isPlaying)
         {
-            ((CandleController)target).SetAll(false);
+            CandleController.SetAll(false);
         }
 
         if (GUILayout.Button("Turn random off") && Application.isPlaying)
         {
-            ((CandleController)target).BlowOutRandom();
+            CandleController.BlowOutRandom();
         }
     }
 }
