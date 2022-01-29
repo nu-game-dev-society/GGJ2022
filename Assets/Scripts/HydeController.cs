@@ -39,7 +39,7 @@ public class HydeController : MonoBehaviour
             if (Random.Range(0, 6) >= rollLimit)
             {
                 //Blow out candle
-                rollLimit += 1;
+                rollLimit += 2;
                 Candle c = CandleController.BlowOutRandom();
                 transform.position = c.transform.position;
                 audioSource.Play();
