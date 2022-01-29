@@ -6,6 +6,7 @@ using UnityEngine;
 public interface IInteractable
 {
     void Interact(PlayerController interactor);
+    bool CanInteract(PlayerController interactor);
 }
 
 

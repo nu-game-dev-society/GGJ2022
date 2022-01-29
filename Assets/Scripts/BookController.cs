@@ -27,6 +27,8 @@ public class BookController : MonoBehaviour, IInteractable
         interactor.Pickup(this);
     }
 
+    public bool CanInteract(PlayerController interactor) => true;
+
     void Start()
     {
         animator = GetComponent<Animator>();
