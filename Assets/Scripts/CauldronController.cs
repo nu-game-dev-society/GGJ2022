@@ -7,24 +7,24 @@ using UnityEngine;
 
 public class CauldronController : MonoBehaviour
 {
-    public delegate void CorrectItemAddedHandler();
-    public event CorrectItemAddedHandler CorrectItemAdded;
+    public delegate void CorrectIngredientAddedHandler();
+    public event CorrectIngredientAddedHandler CorrectIngredientAdded;
 
-    public delegate void IncorrectItemAddedHandler();
-    public event IncorrectItemAddedHandler IncorrectItemAdded;
+    public delegate void IncorrectIngredientAddedHandler();
+    public event IncorrectIngredientAddedHandler IncorrectIngredientAdded;
 
-    public List<Guid> expectedItems = new List<Guid>();
-    public List<Guid> receivedItems = new List<Guid>();
+    public List<IngredientData> ExpectedIngredients => this.gameManager?.ExpectedIngredients ?? new List<IngredientData>();
+    public List<IngredientData> ReceivedIngredients = new List<IngredientData>();
 
     GameManager gameManager;
 
     GameObject cauldronObject;
 
+    ParticleSystem particleSystem;
+
     // Start is called before the first frame update
     void Start()
     {
-        this.gameManager = FindObjectOfType<GameManager>();
-        this.cauldronObject = this.transform.parent.gameObject;
         this.Initialise();
     }
 
@@ -34,54 +34,64 @@ public class CauldronController : MonoBehaviour
         
     }
 
+    // allows us to reset the cauldron without restarting the scene (if we should want to)
     public void Initialise()
     {
-        this.expectedItems = this.gameManager.ExpectedItems.Select(item=>item.Guid).ToList();
-        this.receivedItems = new List<Guid>();
+        this.gameManager = FindObjectOfType<GameManager>();
+        this.cauldronObject = this.transform.parent.gameObject;
+        this.ReceivedIngredients.Clear();
+
+        this.particleSystem = GetComponentInChildren<ParticleSystem>();
+
     }
 
-    public void AddReceivedItem(Guid receivedItemGuid)
+    public void AddReceivedIngredient(IngredientData receivedIngredient)
     {
-        this.receivedItems.Add(receivedItemGuid);
+        this.ReceivedIngredients.Add(receivedIngredient);
 
-        if (this.AreReceivedItemsValid())
+        if (this.AreReceivedIngredientsValidSoFar())
         {
-            this.CorrectItemAdded?.Invoke();
+            OnCorrectIngredientAdded();
         }
         else
         {
-            this.IncorrectItemAdded?.Invoke();
+            this.IncorrectIngredientAdded?.Invoke();
             this.GoBad();
         }
 
         this.CheckIfComplete();
     }
 
-    public bool IsValidNextItem(Guid guid)
+
+    public bool IsValidNextIngredient(IngredientData ingredient)
     {
-        Guid expectedGuid = this.expectedItems.ElementAt(this.receivedItems.Count - 1);
-        return expectedGuid == guid;
+        IngredientData expectedIngredient = this.ExpectedIngredients.ElementAt(this.ReceivedIngredients.Count - 1);
+        return expectedIngredient.Guid == ingredient.Guid;
     }
 
-    public bool AreReceivedItemsValid()
+    public bool AreReceivedIngredientsValidSoFar()
     {
-        int numReceivedItems = this.receivedItems.Count;
-        IEnumerable<Guid> expectedItemsSoFar = this.expectedItems.Take(numReceivedItems);
+        int numReceivedIngredients = this.ReceivedIngredients.Count;
+        IEnumerable<IngredientData> expectedIngredientsSoFar = this.ExpectedIngredients.Take(numReceivedIngredients);
 
-        return expectedItemsSoFar.SequenceEqual(this.receivedItems);
+        return expectedIngredientsSoFar
+            .Select(ingredient => ingredient.Guid)
+            .SequenceEqual(
+                this.ReceivedIngredients.Select(ingredient => ingredient.Guid)
+            );
     }
 
     public bool CheckIfComplete()
     {
         // if they're not the same size, obv wrong
-        if (this.expectedItems.Count == this.receivedItems.Count)
+        if (this.ExpectedIngredients.Count != this.ReceivedIngredients.Count)
         {
             return false;
         }
 
         // go through and make sure each was right
         // we do this every time its added but might as well be sure
-        if (!this.AreReceivedItemsValid())
+        if (!this.AreReceivedIngredientsValidSoFar())
         {
             this.GoBad();
             return false;
@@ -90,8 +100,22 @@ public class CauldronController : MonoBehaviour
         return true;
     }
 
-    public void GoBad()
+    private void OnCorrectIngredientAdded()
     {
+        this.PlayParticles(seconds: 3);
+        this.CorrectIngredientAdded?.Invoke();
+    }
 
+    private void OnIncorrectIngredientAdded()
+    {
+        this.PlayParticles(seconds: 3);
+        this.IncorrectIngredientAdded?.Invoke();
+    }
+
+    IEnumerator PlayParticles(int seconds)
+    {
+        this.particleSystem.Play();
+        yield return new WaitForSeconds(seconds);
+        this.particleSystem.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
     }
 }

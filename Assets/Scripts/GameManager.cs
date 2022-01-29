@@ -1,23 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
-
-// creating this here because I need it but just replace whenever we actually make items
-public class Item
-{
-    public Guid Guid { get; private set; }
-}
 
 public class GameManager : MonoBehaviour
 {
-    public delegate void CorrectItemAddedToCauldronHandler();
-    public event CorrectItemAddedToCauldronHandler CorrectItemAddedToCauldron;
+    public delegate void CorrectIngredientAddedToCauldronHandler();
+    public event CorrectIngredientAddedToCauldronHandler CorrectIngredientAddedToCauldron;
         
-    public delegate void IncorrectItemAddedToCauldronHandler();
-    public event IncorrectItemAddedToCauldronHandler IncorrectItemAddedToCauldron;
+    public delegate void IncorrectIngredientAddedToCauldronHandler();
+    public event IncorrectIngredientAddedToCauldronHandler IncorrectIngredientAddedToCauldron;
 
-    public List<Item> ExpectedItems { get; private set; } = new List<Item>();
+
+    public List<IngredientData> PossibleIngredients { get; private set; } = new List<IngredientData>();
+
+    public const int NUM_EXPECTED_INGREDIENTS = 4;
+    public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
 
     CauldronController cauldronController;
     // Start is called before the first frame update
@@ -34,24 +34,50 @@ public class GameManager : MonoBehaviour
 
     void Initialise()
     {
-        this.GenerateExpectedItems();
+        this.LoadPossibleIngredients();
+
+        this.GenerateExpectedIngredients();
         this.cauldronController = FindObjectOfType<CauldronController>();
-        this.cauldronController.CorrectItemAdded += OnCorrectItemAddedToCauldron;
-        this.cauldronController.IncorrectItemAdded += OnIncorrectItemAddedToCauldron;
+        this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
+        this.cauldronController.IncorrectIngredientAdded += OnIncorrectIngredientAddedToCauldron;
     }
 
-    private void OnCorrectItemAddedToCauldron()
+    private void OnCorrectIngredientAddedToCauldron()
     {
-        this.CorrectItemAddedToCauldron?.Invoke();
+        this.CorrectIngredientAddedToCauldron?.Invoke();
     }
 
-    private void OnIncorrectItemAddedToCauldron()
+    private void OnIncorrectIngredientAddedToCauldron()
     {
-        this.IncorrectItemAddedToCauldron?.Invoke();
+        this.IncorrectIngredientAddedToCauldron?.Invoke();
     }
 
-    void GenerateExpectedItems()
+    void LoadPossibleIngredients()
     {
-
+        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
     }
+
+    void GenerateExpectedIngredients()
+    {
+        int[] randomNumbers = new int[NUM_EXPECTED_INGREDIENTS];
+        for(int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
+        {
+            int randomNumber = -1;
+            do
+            {
+                randomNumber = UnityEngine.Random.Range(0, this.PossibleIngredients.Count);
+            }
+            while (randomNumbers.Contains(randomNumber));
+            randomNumbers[i] = randomNumber;
+        }
+
+        this.ExpectedIngredients = randomNumbers.Select(index => this.PossibleIngredients.ElementAt(index)).ToList();
+    }
+
+    // useful in cases like rather than having to set all the scriptable objs in properties panel, just search db for them
+    // prob terrible idea for large scale dev but for jam it'll be much nicer
+    public static IEnumerable<T> GetAllInstances<T>() where T : UnityEngine.Object
+        => AssetDatabase.FindAssets($"t:{typeof(T).Name}")
+            .Select(assetGuid => AssetDatabase.GUIDToAssetPath(assetGuid))
+            .Select(assetPath => AssetDatabase.LoadAssetAtPath<T>(assetPath));
 }

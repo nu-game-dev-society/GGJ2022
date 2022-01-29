@@ -260,6 +260,7 @@ public class PSXEffects : MonoBehaviour {
 		StartCoroutine("CheckForUpdate");
 	}
 
+#pragma warning disable CS0618
 	IEnumerator CheckForUpdate() {
 		cfuStatus = "Checking for updates...";
 		UnityWebRequest www = UnityWebRequest.Get("https://ckosmic.github.io/psfxredir.html");
@@ -287,4 +288,5 @@ public class PSXEffects : MonoBehaviour {
 			}
 		}
 	}
+#pragma warning restore CS0618
 }
