@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour
     public void SetInUse(bool enabled)
     {
         this.enabled = enabled;
+        cc.enabled = enabled;
+        if (enabled)
+        {
+            cam.localEulerAngles = Vector3.zero;
+            mouseY = 0;
+        }
     }
     public void Pickup(IInteractable interactable)
     {
