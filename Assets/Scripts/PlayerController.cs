@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,5 +28,10 @@ public class PlayerController : MonoBehaviour
         mouseY += Input.GetAxis("Mouse Y") * Time.deltaTime;
         mouseY = Mathf.Clamp(mouseY, -60, 60);
         cam.localEulerAngles = new Vector3(-mouseY, 0, 0);
+    }
+
+    public void SetInUse(bool enabled)
+    {
+        this.enabled = enabled;
     }
 }
