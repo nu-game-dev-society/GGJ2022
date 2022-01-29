@@ -55,8 +55,7 @@ public class CauldronController : MonoBehaviour
         }
         else
         {
-            this.IncorrectIngredientAdded?.Invoke();
-            this.GoBad();
+            OnIncorrectIngredientAdded();
         }
 
         this.CheckIfComplete();
@@ -93,7 +92,7 @@ public class CauldronController : MonoBehaviour
         // we do this every time its added but might as well be sure
         if (!this.AreReceivedIngredientsValidSoFar())
         {
-            this.GoBad();
+            OnIncorrectIngredientAdded();
             return false;
         }
 
