@@ -36,10 +36,12 @@ public class TableController : MonoBehaviour, IInteractable
         {
             // Move and close
             yield return currentBook.Open(false);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.3f);
             // Alter the rotation slightly for nice variation
             currentBook.transform.rotation = Quaternion.Euler(bookStackLocation.rotation.eulerAngles + (Vector3.forward * Random.Range(-15, 15)));
             bookStack.Add(currentBook);
+
+            yield return new WaitForSeconds(0.1f);
 
             CalcStackPositions();
         }
@@ -47,7 +49,10 @@ public class TableController : MonoBehaviour, IInteractable
         book.transform.parent = null;
 
         book.transform.position = bookPlacement.position;
-        book.transform.rotation = bookPlacement.rotation;
+
+        LeanTween.cancel(book.gameObject);
+        LeanTween.move(book.gameObject, bookPlacement.position, 0.3f);
+        book.transform.eulerAngles = bookPlacement.eulerAngles;
         book.gameObject.SetActive(true);
         currentBook = book;
         yield return book.Open();
@@ -70,7 +75,14 @@ public class TableController : MonoBehaviour, IInteractable
         int i = 0;
         foreach (BookController book in bookStack)
         {
-            book.transform.position = bookStackLocation.position + ((Vector3.up * bookHeight) * i);
+            Vector3 positionn = bookStackLocation.position + ((Vector3.up * bookHeight) * i);
+
+            if (!Mathf.Approximately(Vector3.Distance(positionn, transform.position), 0))
+            {
+                if (!LeanTween.isTweening(book.gameObject))
+                    LeanTween.move(book.gameObject, positionn, 0.3f);
+            }
+
             i++;
         }
         
