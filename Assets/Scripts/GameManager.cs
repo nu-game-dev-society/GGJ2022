@@ -22,22 +22,43 @@ public class GameManager : MonoBehaviour
 
     CauldronController cauldronController;
 
-    [ExecuteInEditMode]
+    public static GameManager Instance;
+
     void Awake()
     {
-        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
+        if (Application.isPlaying)
+        {
+            InitialiseInstance();
+        }
+        else
+        {
+            InitialiseExpectedIngredients();
+        }
     }
+
+    void InitialiseInstance()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(Instance);
+        }
+        Instance = this;
+        Debug.Log("InitialiseInstance");
+    }
+
+    void InitialiseExpectedIngredients()
+    {
+        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
+        Debug.Log("InitialiseExpectedIngredients");
+    }   
 
     // Start is called before the first frame update
     void Start()
     {
-        Initialise();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(Application.isPlaying)
+        {
+            Initialise();
+        }
     }
 
     void Initialise()
