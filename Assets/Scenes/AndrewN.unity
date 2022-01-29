@@ -1344,8 +1344,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.61261624, z: 1}
+  m_Center: {x: 0.0000003746534, y: -0.19369082, z: -0.000000009518325}
 --- !u!23 &1362227102
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1502,6 +1502,7 @@ MonoBehaviour:
   ladderEndPos: {x: -5.32, y: 0.208, z: 2.58}
   playerTargetPosition: {x: 0, y: 0, z: 0}
   isAtBottom: 1
+  lookRotation: {x: 0, y: 0, z: 0}
 --- !u!54 &1462041907
 Rigidbody:
   m_ObjectHideFlags: 0
