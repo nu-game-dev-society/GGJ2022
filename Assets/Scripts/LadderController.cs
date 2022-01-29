@@ -26,6 +26,7 @@ public class LadderController : MonoBehaviour, IInteractable
             player.transform.localPosition = Vector3.zero;
 
     }
+    public bool CanInteract(PlayerController interactor) => true;
 
     void Update()
     {

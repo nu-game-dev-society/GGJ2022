@@ -60,4 +60,5 @@ public class Candle : MonoBehaviour, IInteractable
     {
         on = true;
     }
+    public bool CanInteract(PlayerController interactor) => true;
 }

@@ -10,6 +10,7 @@ public class IngredientController : MonoBehaviour, IInteractable
         gameObject.SetActive(false);
         interactor.Pickup(this);
     }
+    public bool CanInteract(PlayerController interactor) => true;
 
     public IngredientData Data;
 }

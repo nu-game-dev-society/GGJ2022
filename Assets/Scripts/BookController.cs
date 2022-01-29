@@ -19,11 +19,14 @@ public class BookController : MonoBehaviour, IInteractable
     [SerializeField]
     private Material[] materials;
 
+
     public void Interact(PlayerController interactor)
     {
         gameObject.SetActive(false);
         interactor.Pickup(this);
     }
+
+    public bool CanInteract(PlayerController interactor) => true;
 
     void Start()
     {

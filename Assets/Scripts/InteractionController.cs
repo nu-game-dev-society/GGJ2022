@@ -20,13 +20,18 @@ public class InteractionController : MonoBehaviour
 
     private void Update()
     {
+        if (currentInteractable?.CanInteract(this.player) == false)
+        {
+            SwitchInteractable(null);
+        }
+
         if (
             Physics.Raycast(new Ray(cam.position, cam.forward), out RaycastHit hit, interactionReach, layers)
             &&
             hit.transform.TryGetComponent(out IInteractable interactable)
         )
         {
-            if (interactable != currentInteractable)
+            if (interactable != currentInteractable && interactable.CanInteract(this.player))
             {
                 SwitchInteractable(interactable);
             }
@@ -55,7 +60,7 @@ public class InteractionController : MonoBehaviour
         {
             m.EnableKeyword("_EMISSION");
             m.SetColor("_EmissionColor", EmissiveColor);
-        }
+        }    
     }
     private void UnhighlightInteractable(IInteractable interactable)
     {
