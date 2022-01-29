@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Flickering from https://gist.github.com/sinbad/4a9ded6b00cf6063c36a4837b15df969
-public class Candle : MonoBehaviour
+public class Candle : MonoBehaviour, IInteractable
 {
     [SerializeField]
     private Light light;
@@ -53,5 +53,15 @@ public class Candle : MonoBehaviour
 
         // Calculate new smoothed average
         light.intensity = lastSum / (float)smoothQueue.Count;
+    }
+
+    public void Select()
+    {
+        on = true;
+    }
+
+    public void Use()
+    {
+        //on = true;
     }
 }
