@@ -32,6 +32,7 @@ public class LadderController : MonoBehaviour, IInteractable
         {
             playerParent.localPosition = playerTargetPosition; ;
             player.transform.position = transform.TransformPoint(playerTargetPosition);
+            player.transform.eulerAngles = new Vector3(0, player.transform.eulerAngles.y + lookRotation.y, 0);
         }
 
         player.SetInUse(!inUse);
@@ -45,6 +46,7 @@ public class LadderController : MonoBehaviour, IInteractable
         {
             player.transform.localPosition = Vector3.zero;
             playerTargetPosition = Vector3.zero;
+            firstFrameEnabled = true;
         }
     }
     void Update()
@@ -54,11 +56,16 @@ public class LadderController : MonoBehaviour, IInteractable
             MoveLadder();
             RotatePlayerCamera();
             PlayerLadderClimb();
+            firstFrameEnabled = false;
         }
     }
-
+    bool firstFrameEnabled = false;
     private void PlayerLadderClimb()
     {
+        if (isAtBottom && (Input.GetKeyDown(KeyCode.S) || (firstFrameEnabled == false && Input.GetKeyDown(KeyCode.E))))
+        {
+            Interact(player);
+        }
         if (Input.GetKeyDown(KeyCode.W))
         {
             if (isAtBottom)
@@ -75,6 +82,7 @@ public class LadderController : MonoBehaviour, IInteractable
                 isAtBottom = true;
             }
         }
+
         playerParent.localPosition = Vector3.Lerp(playerParent.localPosition, playerTargetPosition, Time.deltaTime);
     }
 
@@ -97,5 +105,10 @@ public class LadderController : MonoBehaviour, IInteractable
         ladderT = Mathf.Clamp01(ladderT);
 
         transform.position = Vector3.Lerp(ladderStartPos, ladderEndPos, ladderT);
+    }
+
+    public bool CanInteract(PlayerController interactor)
+    {
+        return !inUse;
     }
 }
