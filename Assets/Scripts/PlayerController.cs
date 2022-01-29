@@ -28,4 +28,12 @@ public class PlayerController : MonoBehaviour
         mouseY = Mathf.Clamp(mouseY, -60, 60);
         cam.localEulerAngles = new Vector3(-mouseY, 0, 0);
     }
+
+    public void Pickup(IInteractable interactable)
+    {
+        if (this.currentItem == null)
+        {
+            this.currentItem = interactable;
+        }
+    }
 }

@@ -121,9 +121,10 @@ public class CauldronController : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController interactor)
     {
-        if (this.player.currentItem is IngredientController ingredient)
+        if (interactor.currentItem is IngredientController ingredient)
         {
-            //this.AddReceivedIngredient(ingredient);
+            this.AddReceivedIngredient(ingredient.Data);
+            interactor.currentItem = null;
         }
         else
         {
