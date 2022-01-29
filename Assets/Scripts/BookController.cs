@@ -19,8 +19,6 @@ public class BookController : MonoBehaviour, IInteractable
     [SerializeField]
     private Material[] materials;
 
-    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
-
     public void Interact(PlayerController interactor)
     {
         gameObject.SetActive(false);

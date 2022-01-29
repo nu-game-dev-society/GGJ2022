@@ -132,6 +132,4 @@ public class CauldronController : MonoBehaviour, IInteractable
             // something like "you can't throw a book in here!"
         }
     }
-
-    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
 }
