@@ -68,9 +68,9 @@ public class PlayerController : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, stepClips.Length);
         if (i == lastStepClip)
-            i++;
+            i++; 
 
-        if (i > stepClips.Length)
+        if (i >= stepClips.Length)
             i++;
 
         audioSource.PlayOneShot(stepClips[i]);
