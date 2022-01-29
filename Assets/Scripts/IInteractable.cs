@@ -15,7 +15,7 @@ public static class InteractableExtensions
     {
         if (interactable is MonoBehaviour monoBehaviour)
         {
-            monoBehaviour.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
+            return monoBehaviour.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
         }
 
         return Enumerable.Empty<Material>();
