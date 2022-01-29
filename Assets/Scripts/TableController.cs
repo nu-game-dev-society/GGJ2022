@@ -43,6 +43,8 @@ public class TableController : MonoBehaviour, IInteractable
 
             yield return new WaitForSeconds(0.1f);
 
+            currentBook.gameObject.layer = LayerMask.NameToLayer("Interactable");
+
             CalcStackPositions();
         }
 
@@ -55,6 +57,7 @@ public class TableController : MonoBehaviour, IInteractable
         book.transform.eulerAngles = bookPlacement.eulerAngles;
         book.gameObject.SetActive(true);
         currentBook = book;
+        currentBook.gameObject.layer = LayerMask.NameToLayer("Default");
         yield return book.Open();
     }
 

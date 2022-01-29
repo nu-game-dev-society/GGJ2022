@@ -23,6 +23,12 @@ public class BookController : MonoBehaviour, IInteractable
     private string subtitle;
     private Animator animator;
 
+    public AudioSource audioSource;
+    public AudioClip openClip;
+    public AudioClip closeClip;
+
+    public Collider collider;
+
     public void Interact(PlayerController interactor)
     {
         interactor.Pickup(this);
@@ -56,5 +62,11 @@ public class BookController : MonoBehaviour, IInteractable
     public string GetName()
     {
         return title.Replace("\n", " ").Trim() + ": " + subtitle;
+    }
+
+    [ExecuteAlways]
+    public void OpenClose()
+    {
+        audioSource.PlayOneShot(animator.GetBool("Open") ? openClip : closeClip);
     }
 }
