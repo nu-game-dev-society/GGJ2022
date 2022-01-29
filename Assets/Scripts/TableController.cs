@@ -59,7 +59,7 @@ public class TableController : MonoBehaviour, IInteractable
     void FixedUpdate()
     {
         // Remove inactive objects
-        int removedCount = bookStack.RemoveAll((book) => !book.gameObject.active);
+        int removedCount = bookStack.RemoveAll((book) => book.gameObject.transform.GetComponentInParent<PlayerController>() != null);
         if (removedCount > 0)
         {
             CalcStackPositions();
