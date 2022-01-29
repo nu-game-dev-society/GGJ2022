@@ -23,7 +23,6 @@ public class BookController : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController interactor)
     {
-        gameObject.SetActive(false);
         interactor.Pickup(this);
     }
 
