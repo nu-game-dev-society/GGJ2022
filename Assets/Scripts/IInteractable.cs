@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface IInteractable
 {
-    void Select();
-    Material[] GetMaterials();
+    void Interact();
+    IEnumerable<Material> GetMaterials();
 }

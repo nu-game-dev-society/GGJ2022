@@ -28,7 +28,7 @@ public class InteractionController : MonoBehaviour
             SwitchInteractable(null);
 
         if (currentInteractable != null && Input.GetKeyDown(KeyCode.E))
-            currentInteractable.Select();
+            currentInteractable.Interact();
 
     }
 
@@ -44,7 +44,7 @@ public class InteractionController : MonoBehaviour
 
     private void HighlightInteractable(IInteractable interactable)
     {
-        Material[] mats = interactable.GetMaterials();
+        IEnumerable<Material> mats = interactable.GetMaterials();
         foreach (Material m in mats)
         {
             m.EnableKeyword("_EMISSION");
@@ -53,7 +53,7 @@ public class InteractionController : MonoBehaviour
     }
     private void UnhighlightInteractable(IInteractable interactable)
     {
-        Material[] mats = interactable.GetMaterials();
+        IEnumerable<Material> mats = interactable.GetMaterials();
         foreach (Material m in mats)
         {
             m.DisableKeyword("_EMISSION");

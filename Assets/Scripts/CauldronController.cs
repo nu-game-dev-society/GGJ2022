@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-public class CauldronController : MonoBehaviour
+public class CauldronController : MonoBehaviour, IInteractable
 {
     public delegate void CorrectIngredientAddedHandler();
     public event CorrectIngredientAddedHandler CorrectIngredientAdded;
@@ -42,7 +42,6 @@ public class CauldronController : MonoBehaviour
         this.ReceivedIngredients.Clear();
 
         this.particleSystem = GetComponentInChildren<ParticleSystem>();
-
     }
 
     public void AddReceivedIngredient(IngredientData receivedIngredient)
@@ -117,4 +116,11 @@ public class CauldronController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         this.particleSystem.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
     }
+
+    public void Interact()
+    {
+        
+    }
+
+    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
 }

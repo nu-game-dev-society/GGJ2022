@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
+[ExecuteAlways]
 public class GameManager : MonoBehaviour
 {
     public delegate void CorrectIngredientAddedToCauldronHandler();
@@ -13,13 +14,20 @@ public class GameManager : MonoBehaviour
     public delegate void IncorrectIngredientAddedToCauldronHandler();
     public event IncorrectIngredientAddedToCauldronHandler IncorrectIngredientAddedToCauldron;
 
-
-    public List<IngredientData> PossibleIngredients { get; private set; } = new List<IngredientData>();
+    
+    public List<IngredientData> PossibleIngredients  = new List<IngredientData>();
 
     public const int NUM_EXPECTED_INGREDIENTS = 4;
     public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
 
     CauldronController cauldronController;
+
+    [ExecuteInEditMode]
+    void Awake()
+    {
+        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,8 +42,6 @@ public class GameManager : MonoBehaviour
 
     void Initialise()
     {
-        this.LoadPossibleIngredients();
-
         this.GenerateExpectedIngredients();
         this.cauldronController = FindObjectOfType<CauldronController>();
         this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
@@ -50,11 +56,6 @@ public class GameManager : MonoBehaviour
     private void OnIncorrectIngredientAddedToCauldron()
     {
         this.IncorrectIngredientAddedToCauldron?.Invoke();
-    }
-
-    void LoadPossibleIngredients()
-    {
-        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
     }
 
     void GenerateExpectedIngredients()
