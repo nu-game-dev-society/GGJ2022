@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 // Flickering from https://gist.github.com/sinbad/4a9ded6b00cf6063c36a4837b15df969
@@ -55,13 +56,10 @@ public class Candle : MonoBehaviour, IInteractable
         light.intensity = lastSum / (float)smoothQueue.Count;
     }
 
-    public void Select()
+    public void Interact()
     {
         on = true;
     }
 
-    public void Use()
-    {
-        //on = true;
-    }
+    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
 }
