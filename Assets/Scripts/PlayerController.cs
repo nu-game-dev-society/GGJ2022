@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
             i++; 
 
         if (i >= stepClips.Length)
-            i++;
+            i = 0;
 
         audioSource.PlayOneShot(stepClips[i]);
 
