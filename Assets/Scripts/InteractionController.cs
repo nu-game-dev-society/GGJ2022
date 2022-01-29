@@ -8,9 +8,16 @@ public class InteractionController : MonoBehaviour
     public LayerMask layers;
     public Transform cam;
     public float interactionReach;
+    PlayerController player;
     public IInteractable currentInteractable;
     [ColorUsage(true, true)]
     public Color EmissiveColor;
+
+    void Start()
+    {
+        this.player = GetComponent<PlayerController>();
+    }
+
     private void Update()
     {
         if (
@@ -28,8 +35,7 @@ public class InteractionController : MonoBehaviour
             SwitchInteractable(null);
 
         if (currentInteractable != null && Input.GetKeyDown(KeyCode.E))
-            currentInteractable.Interact();
-
+            currentInteractable.Interact(this.player);
     }
 
     private void SwitchInteractable(IInteractable interactable)

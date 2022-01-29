@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour
     public CharacterController cc;
     public Transform cam;
     public float speed;
+    public IInteractable currentItem;
+
     void Start()
     {
         cc = GetComponent<CharacterController>();

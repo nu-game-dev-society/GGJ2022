@@ -56,7 +56,7 @@ public class Candle : MonoBehaviour, IInteractable
         light.intensity = lastSum / (float)smoothQueue.Count;
     }
 
-    public void Interact()
+    public void Interact(PlayerController player)
     {
         on = true;
     }

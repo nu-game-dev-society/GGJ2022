@@ -22,6 +22,8 @@ public class CauldronController : MonoBehaviour, IInteractable
 
     ParticleSystem particleSystem;
 
+    PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,7 +42,7 @@ public class CauldronController : MonoBehaviour, IInteractable
         this.gameManager = FindObjectOfType<GameManager>();
         this.cauldronObject = this.transform.parent.gameObject;
         this.ReceivedIngredients.Clear();
-
+        this.player = FindObjectOfType<PlayerController>();
         this.particleSystem = GetComponentInChildren<ParticleSystem>();
     }
 
@@ -117,9 +119,17 @@ public class CauldronController : MonoBehaviour, IInteractable
         this.particleSystem.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
     }
 
-    public void Interact()
+    public void Interact(PlayerController interactor)
     {
-        
+        if (this.player.currentItem is IngredientController ingredient)
+        {
+            //this.AddReceivedIngredient(ingredient);
+        }
+        else
+        {
+            // do we want to show text when the player clicks the cauldron without an ingredient?
+            // something like "you can't throw a book in here!"
+        }
     }
 
     public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
