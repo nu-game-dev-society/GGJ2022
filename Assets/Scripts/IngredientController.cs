@@ -7,11 +7,11 @@ public class IngredientController : MonoBehaviour, IInteractable
 {
     public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
 
-    public void Interact(PlayerController player)
+    public void Interact(PlayerController interactor)
     {
         gameObject.SetActive(false);
-        //this.player.Pickup
+        interactor.Pickup(this);
     }
 
-    
+    public IngredientData Data;
 }

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cfuStatus: PSXEffects v1.18.2 - up to date.
   sections: 01010100
-  customRes: {x: 412, y: 208}
+  customRes: {x: 367, y: 173}
   resolutionFactor: 3
   limitFramerate: -1
   skipFrames: 0
@@ -212,5 +212,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   cam: {fileID: 4187890193267734660}
-  interactionReach: 0.7
+  interactionReach: 1
   EmissiveColor: {r: 0, g: 0.2509804, b: 0.23529412, a: 1}

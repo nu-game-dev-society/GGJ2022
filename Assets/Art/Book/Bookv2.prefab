@@ -211,7 +211,9 @@ GameObject:
   m_Component:
   - component: {fileID: 141692288428805505}
   - component: {fileID: 4157374264364655023}
-  m_Layer: 0
+  - component: {fileID: 1685860224}
+  - component: {fileID: 1685860223}
+  m_Layer: 6
   m_Name: Bookv2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,6 +255,41 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &1685860224
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773692033620924219}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.65359294, y: 0.4498225, z: 0.11359832}
+  m_Center: {x: 1.1724818e-16, y: -1.1724818e-16, z: 0.03300243}
+--- !u!114 &1685860223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773692033620924219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a2741ca2cf7c0d47a838a9ee6f4e24b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cover: {fileID: 1745393220283696402}
+  inside: {fileID: 2929592882888816276}
+  bind: {fileID: 7140798848783855643}
+  meshRenderer: {fileID: 3293039131521636967}
+  materials:
+  - {fileID: 2100000, guid: f4909b32af1a84828b1532d0d03349ce, type: 2}
+  - {fileID: 2100000, guid: 55c1ca73853fd4f498aa55953e65477b, type: 2}
+  - {fileID: 2100000, guid: 9b3fde0f24eb24ba2a81e481d3f4a48f, type: 2}
+  - {fileID: 2100000, guid: 70f1f327c332043d6b46c6357fb83ec2, type: 2}
+  - {fileID: 2100000, guid: 2b781fa035b90454baa1768071461fde, type: 2}
 --- !u!1 &1268699456668547665
 GameObject:
   m_ObjectHideFlags: 0
@@ -973,7 +1010,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 8
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535

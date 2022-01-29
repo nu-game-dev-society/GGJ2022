@@ -34,4 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = enabled;
     }
+    public void Pickup(IInteractable interactable)
+    {
+        if (this.currentItem == null)
+        {
+            this.currentItem = interactable;
+        }
+    }
 }
