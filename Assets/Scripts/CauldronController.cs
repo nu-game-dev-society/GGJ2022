@@ -40,7 +40,7 @@ public class CauldronController : MonoBehaviour, IInteractable
     public void Initialise()
     {
         this.gameManager = FindObjectOfType<GameManager>();
-        this.cauldronObject = this.transform.parent.gameObject;
+        this.cauldronObject = this.gameObject;
         this.ReceivedIngredients.Clear();
         this.player = FindObjectOfType<PlayerController>();
         this.particleSystem = GetComponentInChildren<ParticleSystem>();
@@ -102,25 +102,40 @@ public class CauldronController : MonoBehaviour, IInteractable
 
     private void OnCorrectIngredientAdded()
     {
-        this.PlayParticles(seconds: 3);
+        this.PlayParticles();
+        this.DisableInteraction(this.particleSystem.duration);
         this.CorrectIngredientAdded?.Invoke();
     }
 
     private void OnIncorrectIngredientAdded()
     {
-        this.PlayParticles(seconds: 3);
+        this.PlayParticles();
+        StartCoroutine(this.DisableInteraction(this.particleSystem.main.duration));
         this.IncorrectIngredientAdded?.Invoke();
     }
 
-    IEnumerator PlayParticles(int seconds)
+    void PlayParticles()
     {
         this.particleSystem.Play();
+    }
+
+    IEnumerator DisableInteraction(float seconds = 0)
+    {
+        this.canInteract = false;
+
         yield return new WaitForSeconds(seconds);
-        this.particleSystem.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
+        
+        if (seconds > 0)
+        {
+            this.canInteract = true;
+        }
     }
 
     public void Interact(PlayerController interactor)
     {
+        //TEMP
+        this.OnIncorrectIngredientAdded();
+
         if (interactor.currentItem is IngredientController ingredient)
         {
             this.AddReceivedIngredient(ingredient.Data);
@@ -133,5 +148,10 @@ public class CauldronController : MonoBehaviour, IInteractable
         }
     }
 
-    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
+    public bool canInteract = true;
+    public bool CanInteract(PlayerController interactor)
+    {
+        Debug.Log(canInteract);
+        return canInteract;
+    }
 }

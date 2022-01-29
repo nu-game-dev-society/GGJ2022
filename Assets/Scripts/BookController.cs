@@ -19,7 +19,7 @@ public class BookController : MonoBehaviour, IInteractable
     [SerializeField]
     private Material[] materials;
 
-    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
+    private Animator animator;
 
     public void Interact(PlayerController interactor)
     {
@@ -27,9 +27,22 @@ public class BookController : MonoBehaviour, IInteractable
         interactor.Pickup(this);
     }
 
+    public bool CanInteract(PlayerController interactor) => true;
+
     void Start()
     {
-        cover.text = BookData.RandomTitle() + "\n\n\n\n\n\n" + BookData.RandomSubTitle();
+        animator = GetComponent<Animator>();
+
+        string title = BookData.RandomTitle();
+        string subtitle = BookData.RandomSubTitle();
+        cover.text = title + "\n\n\n\n\n\n" + subtitle;
+        bind.text = title.Replace("\n", " ") + "\n" + subtitle;
         meshRenderer.material = materials[Random.Range(0, materials.Length - 1)];
+    }
+
+    public IEnumerator Open(bool state = true)
+    {
+        animator.SetBool("Open", state);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
     }
 }

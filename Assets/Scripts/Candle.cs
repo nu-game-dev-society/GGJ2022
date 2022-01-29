@@ -60,6 +60,5 @@ public class Candle : MonoBehaviour, IInteractable
     {
         on = true;
     }
-
-    public IEnumerable<Material> GetMaterials() => gameObject.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
+    public bool CanInteract(PlayerController interactor) => true;
 }
