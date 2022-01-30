@@ -47,6 +47,7 @@ public class HydeController : MonoBehaviour
             }
             else
             {
+                LightningManager.Instance.MakeLightningHappen();
                 rollLimit -= 1;
                 Debug.Log("Do not blow out, rollLimit: " + rollLimit);
             }

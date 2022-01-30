@@ -55,7 +55,7 @@ public class InteractionController : MonoBehaviour
 
     private void HighlightInteractable(IInteractable interactable)
     {
-        IEnumerable<Material> mats = interactable.GetMaterials();
+        IEnumerable<Material> mats = (interactable as MonoBehaviour).GetMaterials();
         foreach (Material m in mats)
         {
             m.EnableKeyword("_EMISSION");
@@ -64,7 +64,7 @@ public class InteractionController : MonoBehaviour
     }
     private void UnhighlightInteractable(IInteractable interactable)
     {
-        IEnumerable<Material> mats = interactable.GetMaterials();
+        IEnumerable<Material> mats = (interactable as MonoBehaviour).GetMaterials();
         foreach (Material m in mats)
         {
             m.DisableKeyword("_EMISSION");

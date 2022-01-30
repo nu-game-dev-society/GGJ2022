@@ -12,13 +12,6 @@ public interface IInteractable
 
 public static class InteractableExtensions
 {
-    public static IEnumerable<Material> GetMaterials(this IInteractable interactable)
-    {
-        if (interactable is MonoBehaviour monoBehaviour)
-        {
-            return monoBehaviour.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
-        }
-
-        return Enumerable.Empty<Material>();
-    }
+    public static IEnumerable<Material> GetMaterials(this MonoBehaviour monoBehaviour)
+        => monoBehaviour.GetComponentsInChildren<Renderer>().SelectMany(renderer => renderer.materials);
 }
