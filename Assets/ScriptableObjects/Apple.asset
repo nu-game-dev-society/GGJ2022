@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: Apple
   ingredientClues:
-  - APPLE PLZ
+  - Add one a day and you might be sent away, but it will further your progress for
+    the cure.
