@@ -16,6 +16,7 @@ public class MenuBookController : MonoBehaviour, IAudioEvent
         if (anim == null)
             anim = GetComponent<Animator>();
         StartCoroutine(Open());
+        Time.timeScale = 1.0f;
     }
 
 

@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
   m_Name: Mushroom
   m_EditorClassIdentifier: 
-  ingredientName: 
-  ingredientClues: []
+  ingredientName: Mushroom
+  ingredientClues:
+  - Spread into the mixture that which is raised from the ground and can be either
+    poinonous or a delicious treat.
   ingredientModel: {fileID: 0}
