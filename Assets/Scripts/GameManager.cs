@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
     public GameObject DeathScreen;
+    public GameObject WinScreen;
 
     void Awake()
     {
@@ -86,6 +87,21 @@ public class GameManager : MonoBehaviour
         this.cauldronController = FindObjectOfType<CauldronController>();
         this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
         this.cauldronController.IncorrectIngredientAdded += OnIncorrectIngredientAddedToCauldron;
+        this.cauldronController.RecipeComplete += OnRecipeComplete;
+    }
+
+    private void OnRecipeComplete()
+    {
+        PlayerWin();
+    }
+
+    private void PlayerWin()
+    {
+        FindObjectOfType<PlayerController>().GameOver();
+        WinScreen.SetActive(true);
+        ScreenFader.instance.SetToBlack(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     private void OnCorrectIngredientAddedToCauldron()

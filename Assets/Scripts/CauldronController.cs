@@ -9,6 +9,7 @@ public class CauldronController : MonoBehaviour, IInteractable
 {
     public delegate void CorrectIngredientAddedHandler();
     public event CorrectIngredientAddedHandler CorrectIngredientAdded;
+    public event CorrectIngredientAddedHandler RecipeComplete;
 
     public delegate void IncorrectIngredientAddedHandler();
     public event IncorrectIngredientAddedHandler IncorrectIngredientAdded;
@@ -33,7 +34,7 @@ public class CauldronController : MonoBehaviour, IInteractable
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     // allows us to reset the cauldron without restarting the scene (if we should want to)
@@ -59,7 +60,8 @@ public class CauldronController : MonoBehaviour, IInteractable
             OnIncorrectIngredientAdded();
         }
 
-        this.CheckIfComplete();
+        if (this.CheckIfComplete())
+            RecipeComplete?.Invoke();
     }
 
 
@@ -124,7 +126,7 @@ public class CauldronController : MonoBehaviour, IInteractable
         this.canInteract = false;
 
         yield return new WaitForSeconds(seconds);
-        
+
         if (seconds > 0)
         {
             this.canInteract = true;
