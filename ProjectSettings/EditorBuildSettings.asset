@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuScene.unity
     guid: b94cc67a2a44f1845b97ed27878c2efe
   - enabled: 1
-    path: Assets/Scenes/Joseph.unity
+    path: Assets/Scenes/Main.unity
     guid: f91180d911c064af7b7e425a15512097
   m_configObjects: {}
