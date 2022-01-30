@@ -15,6 +15,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3209777542655665881, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3209777542655665881, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
+      propertyPath: m_Intensity
+      value: 1.28
+      objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871130, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_Name
       value: Candle Wall
