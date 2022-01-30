@@ -29,17 +29,18 @@ public class PlayerController : MonoBehaviour
     {
         if (this.currentItem is MonoBehaviour monoBehaviour)
         {
-            SetLayerRecursively(monoBehaviour.gameObject, LayerMask.NameToLayer("Interactable"));  
+            SetLayerRecursively(monoBehaviour.gameObject, LayerMask.NameToLayer("Interactable"));
         }
 
         this.currentItem = null;
     }
 
     float mouseY;
-    void LateUpdate()
+    void Update()
     {
         Vector3 dir = (transform.forward * Input.GetAxisRaw("Vertical")) + (transform.right * Input.GetAxisRaw("Horizontal")).normalized;
-        cc.Move(speed * Time.deltaTime * dir);
+        Vector3 gravity = cc.isGrounded ? Vector3.zero : 9.8f * Time.deltaTime * Vector3.down;
+        cc.Move((speed * Time.deltaTime * dir) + gravity);
 
         transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * Time.deltaTime, 0));
         mouseY += Input.GetAxis("Mouse Y") * Time.deltaTime;
@@ -57,7 +58,7 @@ public class PlayerController : MonoBehaviour
     {
         this.enabled = enabled;
         cc.enabled = enabled;
-        if (enabled) 
+        if (enabled)
         {
             cam.localEulerAngles = Vector3.zero;
             mouseY = 0;
@@ -68,7 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         int i = UnityEngine.Random.Range(0, stepClips.Length);
         if (i == lastStepClip)
-            i++; 
+            i++;
 
         if (i >= stepClips.Length)
             i = 0;
@@ -83,7 +84,7 @@ public class PlayerController : MonoBehaviour
         if (this.currentItem == null)
         {
             this.currentItem = interactable;
-            
+
             if (this.currentItem is MonoBehaviour monoBehaviour)
             {
                 monoBehaviour.gameObject.transform.parent = this.heldItemRoot;
@@ -98,7 +99,7 @@ public class PlayerController : MonoBehaviour
     {
         obj.layer = newLayer;
 
-        foreach(Transform child in obj.transform)
+        foreach (Transform child in obj.transform)
         {
             SetLayerRecursively(child.gameObject, newLayer);
         }
