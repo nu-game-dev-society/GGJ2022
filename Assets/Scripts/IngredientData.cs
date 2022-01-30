@@ -14,4 +14,7 @@ public class IngredientData : ScriptableObject
 
     public string[] Clues => this.ingredientClues;
     [TextArea(2, 10)][SerializeField] string[] ingredientClues;
+
+    public GameObject Model => this.ingredientModel;
+    [SerializeField] GameObject ingredientModel;
 }

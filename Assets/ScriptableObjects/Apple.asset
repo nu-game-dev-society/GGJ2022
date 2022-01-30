@@ -16,3 +16,4 @@ MonoBehaviour:
   ingredientClues:
   - Add one a day and you might be sent away, but it will further your progress for
     the cure.
+  ingredientModel: {fileID: 8305523573745711695, guid: 5e84c9714488243b992be1e48ef3cb88, type: 3}
