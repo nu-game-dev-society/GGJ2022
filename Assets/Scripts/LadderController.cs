@@ -19,7 +19,14 @@ public class LadderController : MonoBehaviour, IInteractable
     public bool isAtBottom;
     private PlayerController player;
 
+
+    public AudioSource audiosource;
+    public AudioClip ladderLoop;
+        
     public Vector3 lookRotation;
+
+    public float climbSpeed = 0.5f;
+
     public void Interact(PlayerController player)
     {
         if (inUse && !isAtBottom)
@@ -57,33 +64,47 @@ public class LadderController : MonoBehaviour, IInteractable
             RotatePlayerCamera();
             PlayerLadderClimb();
             firstFrameEnabled = false;
+
+            if (!audiosource.isPlaying)
+            {
+                audiosource.clip = ladderLoop;
+                audiosource.loop = true;
+                audiosource.volume = 0;
+                audiosource.Play();
+            }
+        }
+        else
+        {
+            if (audiosource.isPlaying)
+            {
+                audiosource.Stop();
+            }
         }
     }
     bool firstFrameEnabled = false;
     private void PlayerLadderClimb()
     {
-        if (isAtBottom && (Input.GetKeyDown(KeyCode.S) || (firstFrameEnabled == false && Input.GetKeyDown(KeyCode.E))))
+        if (isAtBottom && (Input.GetKey(KeyCode.S) || (firstFrameEnabled == false && Input.GetKeyDown(KeyCode.E))))
         {
             Interact(player);
         }
-        if (Input.GetKeyDown(KeyCode.W))
+
+        if (Input.GetKey(KeyCode.W))
         {
-            if (isAtBottom)
-            {
-                playerTargetPosition = topOfLadder.localPosition;
-                isAtBottom = false;
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (!isAtBottom)
-            {
-                playerTargetPosition = Vector3.zero;
-                isAtBottom = true;
-            }
+            playerTargetPosition.y += climbSpeed * Time.deltaTime;
+            isAtBottom = false;
         }
 
-        playerParent.localPosition = Vector3.Lerp(playerParent.localPosition, playerTargetPosition, Time.deltaTime);
+        if (Input.GetKey(KeyCode.S))
+        {
+            playerTargetPosition.y -= climbSpeed * Time.deltaTime;
+            isAtBottom = playerParent.localPosition.y <= 0f;
+
+        }
+
+        playerTargetPosition.y = Mathf.Clamp(playerTargetPosition.y, 0, topOfLadder.localPosition.y);
+
+        playerParent.localPosition = playerTargetPosition;
     }
 
     private void RotatePlayerCamera()
@@ -99,12 +120,13 @@ public class LadderController : MonoBehaviour, IInteractable
 
     private void MoveLadder()
     {
-        if (!isAtBottom)
-            return;
+        
         ladderT += Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed / Vector3.Distance(ladderStartPos, ladderEndPos);
         ladderT = Mathf.Clamp01(ladderT);
 
         transform.position = Vector3.Lerp(ladderStartPos, ladderEndPos, ladderT);
+
+        audiosource.volume = ladderT != 0 && ladderT != 1 ? Mathf.Abs(Input.GetAxisRaw("Horizontal")) * 0.8f : 0;
     }
 
     public bool CanInteract(PlayerController interactor)
