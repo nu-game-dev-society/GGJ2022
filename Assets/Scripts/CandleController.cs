@@ -8,8 +8,7 @@ public class CandleController : MonoBehaviour
 {
     private static List<Candle> candles;
 
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         candles = FindObjectsOfType<Candle>().ToList();
     }

@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            InitialiseInstance();
+            InitialiseSingleton();
+            Initialise();
         }
         else
         {
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void InitialiseInstance()
+    void InitialiseSingleton()
     {
         if (Instance != null && Instance != this)
         {

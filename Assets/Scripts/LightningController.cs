@@ -10,14 +10,24 @@ public class LightningController : MonoBehaviour
     Material[] materials;
     Color targetEmissionColour;
 
+    public Material[] Materials
+    {
+        get
+        {
+            if (this.materials == null || this.materials.Length == 0)
+                this.materials = this.GetMaterials().ToArray();
+            return this.materials;
+        }
+    }
+
     private void Start()
     {
-        this.materials = this.GetMaterials().ToArray();
+        
     }
 
     private void Update()
     {
-        foreach (Material mat in this.materials)
+        foreach (Material mat in this.Materials)
         {
             Color newEmissionColor = Color.Lerp(mat.GetColor("_EmissionColor"), targetEmissionColour, Time.deltaTime * 10f);
             mat.SetColor("_EmissionColor", newEmissionColor);
@@ -26,7 +36,7 @@ public class LightningController : MonoBehaviour
 
     public void SetColor(Color newEmissionColor)
     {
-        foreach (Material mat in this.materials)
+        foreach (Material mat in this.Materials)
         {
             mat.SetColor("_EmissionColor", newEmissionColor);
         }
@@ -39,7 +49,7 @@ public class LightningController : MonoBehaviour
 
     public void TurnOn()
     {
-        foreach (Material mat in this.materials)
+        foreach (Material mat in this.Materials)
         {
             mat.EnableKeyword("_EMISSION");
         }
@@ -47,7 +57,7 @@ public class LightningController : MonoBehaviour
 
     public void TurnOff()
     {
-        foreach (Material mat in this.materials)
+        foreach (Material mat in this.Materials)
         {
             mat.DisableKeyword("_EMISSION");
         }
