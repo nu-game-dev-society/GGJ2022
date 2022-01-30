@@ -48,9 +48,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         Debug.Log("InitialiseInstance");
-
-        this.GenerateExpectedIngredients();
-        this.CollateRiddles();
     }
 
     void InitialiseExpectedIngredients()
@@ -72,6 +69,9 @@ public class GameManager : MonoBehaviour
 
     void Initialise()
     {
+        this.GenerateExpectedIngredients();
+        this.CollateRiddles();
+
         if (DeathScreen == null)
             DeathScreen = GameObject.Find("Canvas/DeathScreen");
         this.cauldronController = FindObjectOfType<CauldronController>();
