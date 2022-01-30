@@ -78,6 +78,17 @@ public class LadderController : MonoBehaviour, IInteractable
                 audiosource.volume = 0;
                 audiosource.Play();
             }
+
+            if (Input.GetMouseButton(1))
+            {
+                this.player.SetFovMultiplier(0.5f);
+            }
+            else
+            {
+                this.player.SetFovMultiplier(1f);
+            }
+
+            this.player.UpdateFov();
         }
         else
         {

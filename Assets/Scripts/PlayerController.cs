@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private int lastStepClip;
     private float lastStepTime;
     float startFoV;
+    float targetFoV;
     Camera cam;
 
     
@@ -27,8 +28,9 @@ public class PlayerController : MonoBehaviour
         cc = GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-        startFoV = Camera.main.fieldOfView;
         cam = Camera.main;
+        startFoV = cam.fieldOfView;
+        targetFoV = cam.fieldOfView;
     }
 
     internal void DropItem()
@@ -60,10 +62,26 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        float targetFoV = Input.GetMouseButton(1)
-            ? startFoV * 0.5f
-            : startFoV;
+        if (Input.GetMouseButton(1))
+        {
+            SetFovMultiplier(0.5f);
+        }
+        else
+        {
+            SetFovMultiplier(1f);
+        }
 
+        UpdateFov();
+    }
+
+    public void SetFovMultiplier(float multiplier)
+    {
+        this.targetFoV = this.startFoV * multiplier;
+    }
+
+    // putting here so we can update when this is disabled but they're on a ladder or something
+    public void UpdateFov()
+    {
         cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFoV, Time.deltaTime * 3f);
     }
 
