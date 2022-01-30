@@ -4,6 +4,36 @@ using UnityEngine;
 
 public class BookData
 {
+    public static readonly List<string> subjects = new List<string>
+    {
+        "The complete history of",
+        "The history of",
+        "The science of",
+        "The book of",
+        "The records of",
+        "A complete record of",
+        "Learning for Dummies:",
+    };
+
+    public static readonly List<string> topics = new List<string>
+    {
+        "the past",
+        "the future",
+        "sceience",
+        "biology",
+        "physics",
+        "love",
+        "dance",
+        "cooking",
+        "murder",
+        "law",
+        "magic",
+        "sex",
+        "carpentry",
+        "toilets",
+    };
+
+
     public static readonly List<string> titles = new List<string>
     {
         "The complete history of\nthe past",
@@ -15,7 +45,7 @@ public class BookData
 
     public static readonly List<string> subtitles = new List<string>
     {
-        "Volume I",
+        "Volume I", 
         "Volume II",
         "Volume III",
         "Volume IV",
@@ -25,7 +55,7 @@ public class BookData
 
     public static string RandomTitle()
     {
-        return titles[Random.Range(0, titles.Count)];
+        return subjects[Random.Range(0, subjects.Count)] + "\n" + topics[Random.Range(0, topics.Count)];
     }
 
     public static string RandomSubTitle()
