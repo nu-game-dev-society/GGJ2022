@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         Debug.Log("InitialiseInstance");
+
+        this.GenerateExpectedIngredients();
     }
 
     void InitialiseExpectedIngredients()
@@ -63,7 +65,6 @@ public class GameManager : MonoBehaviour
 
     void Initialise()
     {
-        this.GenerateExpectedIngredients();
         this.cauldronController = FindObjectOfType<CauldronController>();
         this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
         this.cauldronController.IncorrectIngredientAdded += OnIncorrectIngredientAddedToCauldron;
@@ -82,7 +83,13 @@ public class GameManager : MonoBehaviour
     void GenerateExpectedIngredients()
     {
         int[] randomNumbers = new int[NUM_EXPECTED_INGREDIENTS];
-        for(int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
+        // Init the array to -1
+        for (int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
+        {
+            randomNumbers[i] = -1; 
+        }
+
+        for (int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
         {
             int randomNumber = -1;
             do

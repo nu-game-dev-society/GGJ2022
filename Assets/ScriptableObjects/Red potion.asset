@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
-  m_Name: Cherry
+  m_Name: Red potion
   m_EditorClassIdentifier: 
-  ingredientName: Cherry
+  ingredientName: Red potion
   ingredientClues:
-  - Gumball but fruit
+  - blood or smthin
+  ingredientModel: {fileID: 4045635392830457268, guid: e20352937c23049de96f1c491030cf44, type: 3}

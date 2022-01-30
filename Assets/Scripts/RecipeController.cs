@@ -1,11 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
 public class RecipeController : MonoBehaviour
 {
+    [SerializeField]
+    private Transform itemSpawnsParent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,34 @@ public class RecipeController : MonoBehaviour
         foreach (BookController book in ingredientBooks)
         {
             Debug.Log(book.GetName());
+        }
+
+        if (itemSpawnsParent == null)
+        {
+            Debug.LogError("No item spawns set!");
+            return;
+        }
+
+        // Spawn items
+        int spawnedCount = 0;
+        Transform[] itemSpawns = itemSpawnsParent.GetComponentsInChildren<Transform>();
+        foreach (Transform position in itemSpawns)
+        {
+            IngredientData data;
+            if (spawnedCount < GameManager.Instance.ExpectedIngredients.Count)
+            {
+                data = GameManager.Instance.ExpectedIngredients[spawnedCount];
+            }
+            else
+            {
+                data = GameManager.Instance.PossibleIngredients[UnityEngine.Random.Range(0, GameManager.Instance.PossibleIngredients.Count)];
+            }
+
+            GameObject item = Instantiate(data.Model);
+            item.transform.position = position.position;
+            item.AddComponent<IngredientController>().Data = data;
+
+            spawnedCount++;
         }
     }
 

@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: Flower
   ingredientClues:
-  - You bury me when I am alive, and dig me up when I die.
+  - You bury me when I am alive, and dig me up when I die, but add me to the pot
+    and you'll be closer to your goal.
   - I enjoy a light meal but cannot eat. Stir me in to progress the cure.
+  ingredientModel: {fileID: 0}

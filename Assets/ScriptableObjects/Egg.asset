@@ -15,4 +15,5 @@ MonoBehaviour:
   ingredientName: Egg
   ingredientClues:
   - Add the ingredient that must be broken to be useful.
-  - Stir in the case that hides a golden treasure without a lid, key or hinge.
+  - Stir in the case which protects a golden treasure without a lid, key or hinge.
+  ingredientModel: {fileID: 3464309411108501063, guid: 61e4f9f3089e9804481be82fa50c7699, type: 3}
