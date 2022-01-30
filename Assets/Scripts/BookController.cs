@@ -44,7 +44,7 @@ public class BookController : MonoBehaviour, IInteractable, IAudioEvent
 
     public bool CanInteract(PlayerController interactor) => true;
 
-    void Start()
+    void Awake() 
     {
         animator = GetComponent<Animator>();
 
