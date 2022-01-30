@@ -277,6 +277,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 422afb19c92af524f97eb91ff9c3fcd5, type: 2}
   - {fileID: 11400000, guid: 9e115b5651f10ff48b2583ec01ae0782, type: 2}
   cauldronController: {fileID: 0}
+  DeathScreen: {fileID: 0}
 --- !u!4 &9014135
 Transform:
   m_ObjectHideFlags: 0
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSpawnsParent: {fileID: 425060421}
+  itemPlate: {fileID: 9075225808809259497, guid: eea09d60ee76885479533b38d1b1e6d9, type: 3}
   recipeCard: {fileID: 1921623794}
   pickUpSfx: {fileID: 8300000, guid: 25789931c26c5435d925116fc3e2d589, type: 3}
 --- !u!1001 &57566284
