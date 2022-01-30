@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
   m_Name: Teeth
   m_EditorClassIdentifier: 
-  ingredientName: Egg
+  ingredientName: Teeth
   ingredientClues:
   - Lose me once I come back stronger, lose me twice I leave forever. Add me to the
     pot to complete this step.
-  ingredientModel: {fileID: 3464309411108501063, guid: 61e4f9f3089e9804481be82fa50c7699, type: 3}
+  ingredientModel: {fileID: 1266241996612246490, guid: 6d199fa49335a4833b69de57de2c782c, type: 3}
