@@ -9,6 +9,9 @@ public class RecipeController : MonoBehaviour
     private Transform itemSpawnsParent;
 
     [SerializeField]
+    private GameObject itemPlate;
+
+    [SerializeField]
     private TextMeshPro recipeCard;
 
     [SerializeField]
@@ -68,6 +71,10 @@ public class RecipeController : MonoBehaviour
             IngredientController ingredient = item.AddComponent<IngredientController>();
             ingredient.Data = data;
             ingredient.Sound = pickUpSfx;
+
+            GameObject placement = Instantiate(itemPlate);
+            placement.transform.position = position.position;
+            placement.GetComponent<ItemPlate>().SetCurrentItem(ingredient);
 
             spawnedCount++;
         }

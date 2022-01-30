@@ -133,9 +133,6 @@ public class CauldronController : MonoBehaviour, IInteractable
 
     public void Interact(PlayerController interactor)
     {
-        //TEMP
-        this.OnIncorrectIngredientAdded();
-
         if (interactor.currentItem is IngredientController ingredient)
         {
             this.AddReceivedIngredient(ingredient.Data);
@@ -147,6 +144,8 @@ public class CauldronController : MonoBehaviour, IInteractable
         {
             // do we want to show text when the player clicks the cauldron without an ingredient?
             // something like "you can't throw a book in here!"
+
+            // Disabled for now
         }
     }
 
