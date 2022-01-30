@@ -13,5 +13,5 @@ public class IngredientData : ScriptableObject
     [SerializeField] string ingredientName;
 
     public string[] Clues => this.ingredientClues;
-    [SerializeField] string[] ingredientClues;
+    [TextArea(2, 10)][SerializeField] string[] ingredientClues;
 }
