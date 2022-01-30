@@ -15,6 +15,7 @@ public class HydeController : MonoBehaviour
     void Start()
     {
         nextRollTime = Time.time + nextRollTime;
+        GameManager.Instance.cauldronController.IncorrectIngredientAdded += GameOver;
     }
 
     // Update is called once per frame
@@ -57,4 +58,9 @@ public class HydeController : MonoBehaviour
 #endif
     }
 
+    public void GameOver()
+    {
+        CandleController.BlowOutAll();
+        audioSource.Play();
+    }
 }

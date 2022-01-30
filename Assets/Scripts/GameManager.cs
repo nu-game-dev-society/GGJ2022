@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public const int NUM_EXPECTED_INGREDIENTS = 4;
     public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
     public List<string> Clues { get; private set; } = new List<string>();
-
-    CauldronController cauldronController;
+    [HideInInspector]
+    public CauldronController cauldronController;
 
     public static GameManager Instance;
 
@@ -53,8 +53,10 @@ public class GameManager : MonoBehaviour
 
     void InitialiseExpectedIngredients()
     {
+#if UNITY_EDITOR
         this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
         Debug.Log("InitialiseExpectedIngredients");
+#endif
     }   
 
     // Start is called before the first frame update
@@ -116,10 +118,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+#if UNITY_EDITOR
     // useful in cases like rather than having to set all the scriptable objs in properties panel, just search db for them
     // prob terrible idea for large scale dev but for jam it'll be much nicer
     public static IEnumerable<T> GetAllInstances<T>() where T : UnityEngine.Object
         => AssetDatabase.FindAssets($"t:{typeof(T).Name}")
             .Select(assetGuid => AssetDatabase.GUIDToAssetPath(assetGuid))
-            .Select(assetPath => AssetDatabase.LoadAssetAtPath<T>(assetPath));
+            .Select(assetPath => AssetDatabase.LoadAssetAtPath<T>(assetPath)); 
+#endif
+
+
 }
