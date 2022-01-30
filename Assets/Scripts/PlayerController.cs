@@ -7,7 +7,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public CharacterController cc;
-    public Transform cam;
+    public Transform camTransform;
     public float speed;
     public IInteractable currentItem;
     public Transform heldItemRoot;
@@ -17,12 +17,16 @@ public class PlayerController : MonoBehaviour
     public float timeBetweenSteps = 0.1f;
     private int lastStepClip;
     private float lastStepTime;
+    float startFoV;
+    Camera cam;
 
     void Start()
     {
         cc = GetComponent<CharacterController>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        startFoV = Camera.main.fieldOfView;
+        cam = Camera.main;
     }
 
     internal void DropItem()
@@ -45,13 +49,20 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * Time.deltaTime, 0));
         mouseY += Input.GetAxis("Mouse Y") * Time.deltaTime;
         mouseY = Mathf.Clamp(mouseY, -60, 60);
-        cam.localEulerAngles = new Vector3(-mouseY, 0, 0);
+        camTransform.localEulerAngles = new Vector3(-mouseY, 0, 0);
 
         if (dir.magnitude > 0 && Time.time > lastStepTime + timeBetweenSteps)
         {
             PlayStep();
             lastStepTime = Time.time;
         }
+
+
+        float targetFoV =  Input.GetMouseButton(1)
+            ? startFoV * 0.5f
+            : startFoV;
+
+        cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, targetFoV, Time.deltaTime * 3f);
     }
 
     public void SetInUse(bool enabled)
@@ -60,7 +71,7 @@ public class PlayerController : MonoBehaviour
         cc.enabled = enabled;
         if (enabled)
         {
-            cam.localEulerAngles = Vector3.zero;
+            camTransform.localEulerAngles = Vector3.zero;
             mouseY = 0;
         }
     }
