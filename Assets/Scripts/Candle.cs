@@ -24,11 +24,11 @@ public class Candle : MonoBehaviour, IInteractable
     {
         get
         {
-            return light.enabled;
+            return light.gameObject.activeInHierarchy; 
         }
         set
         {
-            light.enabled = value;
+            light.gameObject.SetActive(value);
         }
     }
 
