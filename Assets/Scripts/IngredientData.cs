@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New_Ingredient_Data", menuName = "NUGameDev/IngredientData", order = 1)]
+[Serializable]
 public class IngredientData : ScriptableObject
 {
     public Guid Guid => this.guid;
