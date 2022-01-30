@@ -10,11 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
-  m_Name: Eyeballs
+  m_Name: Mushroom
   m_EditorClassIdentifier: 
-  ingredientName: Eyeballs
-  ingredientClues:
-  - Pronounced as a letter, written with three, I have a twin whom I cannot see.
-    Add me to the pot with care.
-  - Add the ball that shouldn't be bounced or thrown but is often rolled.
+  ingredientName: 
+  ingredientClues: []
   ingredientModel: {fileID: 0}

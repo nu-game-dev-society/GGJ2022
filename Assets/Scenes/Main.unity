@@ -285,7 +285,7 @@ MonoBehaviour:
   player: {fileID: 0}
   DeathScreen: {fileID: 1699287349}
   WinScreen: {fileID: 489808186}
-  PauseScreen: {fileID: 0}
+  PauseScreen: {fileID: 631351969}
 --- !u!4 &9014135
 Transform:
   m_ObjectHideFlags: 0
@@ -1309,7 +1309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.69452
+      value: -10.259
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1317,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.1806664
+      value: 5.113
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7359,6 +7359,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 141692288428805505, guid: 89a3083d570e14905a3f8e5c856a836c, type: 3}
   m_PrefabInstance: {fileID: 1818878979}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &631351969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 631351969, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
+  m_PrefabInstance: {fileID: 489808185}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &633386445
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7978,7 +7983,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676526336}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 60.798023, y: -19.855307, z: -15.396092}
+  m_LocalPosition: {x: 0, y: -0.475, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
