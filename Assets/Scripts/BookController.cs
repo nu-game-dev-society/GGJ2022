@@ -4,7 +4,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class BookController : MonoBehaviour, IInteractable
+public class BookController : MonoBehaviour, IInteractable, IAudioEvent
 {
     [SerializeField]
     private TextMeshPro cover;
@@ -76,8 +76,13 @@ public class BookController : MonoBehaviour, IInteractable
     }
 
     [ExecuteAlways]
-    public void OpenClose()
+    public void Event()
     {
         audioSource.PlayOneShot(animator.GetBool("Open") ? openClip : closeClip);
     }
+}
+
+internal interface IAudioEvent
+{
+    void Event();
 }
