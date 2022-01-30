@@ -202,6 +202,7 @@ MonoBehaviour:
   ladderLoop: {fileID: 8300000, guid: c73c93f4532404b76a466be76582180b, type: 3}
   lookRotation: {x: 0, y: 0, z: 0}
   climbSpeed: 1
+  collider: {fileID: 1952075567260988024}
 --- !u!82 &3885581063841484545
 AudioSource:
   m_ObjectHideFlags: 0

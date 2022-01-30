@@ -27,13 +27,15 @@ public class LadderController : MonoBehaviour, IInteractable
 
     public float climbSpeed = 0.5f;
 
-    public void Interact(PlayerController player)
-    {
-        if (inUse && !isAtBottom)
-            return;
+    public Collider collider; 
 
+    public void Interact(PlayerController player) 
+    {
         inUse = !inUse;
         enabled = inUse;
+
+        collider.enabled = !inUse;
+
 
         if (!inUse)
         {
@@ -58,6 +60,7 @@ public class LadderController : MonoBehaviour, IInteractable
     }
     void Update()
     {
+
         if (inUse)//should always be true tbh
         {
             MoveLadder();
