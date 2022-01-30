@@ -30,7 +30,8 @@ public class GameManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            InitialiseInstance();
+            InitialiseSingleton();
+            Initialise();
         }
         else
         {
@@ -38,7 +39,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void InitialiseInstance()
+    void InitialiseSingleton()
     {
         if (Instance != null && Instance != this)
         {
@@ -62,10 +63,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(Application.isPlaying)
-        {
-            Initialise();
-        }
+        
     }
 
     void Initialise()
