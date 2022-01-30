@@ -22,14 +22,14 @@ public class LadderController : MonoBehaviour, IInteractable
 
     public AudioSource audiosource;
     public AudioClip ladderLoop;
-        
+
     public Vector3 lookRotation;
 
     public float climbSpeed = 0.5f;
 
-    public Collider collider; 
+    public Collider collider;
 
-    public void Interact(PlayerController player) 
+    public void Interact(PlayerController player)
     {
         inUse = !inUse;
         enabled = inUse;
@@ -114,8 +114,8 @@ public class LadderController : MonoBehaviour, IInteractable
     {
         if (player)
         {
-            lookRotation.y += Input.GetAxisRaw("Mouse X") * Time.deltaTime;
-            lookRotation.x -= Input.GetAxis("Mouse Y") * Time.deltaTime;
+            lookRotation.y += Input.GetAxisRaw("Mouse X");
+            lookRotation.x -= Input.GetAxis("Mouse Y");
             lookRotation.x = Mathf.Clamp(lookRotation.x, -60, 60);
             player.camTransform.localEulerAngles = lookRotation;
         }
@@ -123,7 +123,7 @@ public class LadderController : MonoBehaviour, IInteractable
 
     private void MoveLadder()
     {
-        
+
         ladderT += Input.GetAxisRaw("Horizontal") * Time.deltaTime * speed / Vector3.Distance(ladderStartPos, ladderEndPos);
         ladderT = Mathf.Clamp01(ladderT);
 
