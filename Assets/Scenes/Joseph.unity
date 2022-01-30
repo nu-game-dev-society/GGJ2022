@@ -15018,6 +15018,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Candle
       objectReference: {fileID: 0}
+    - target: {fileID: 3209777543082871131, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
+      propertyPath: smoothing
+      value: 500
+      objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_RootOrder
       value: 13

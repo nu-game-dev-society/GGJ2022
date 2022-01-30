@@ -13,6 +13,9 @@ public class BookData
         "The records of",
         "A complete record of",
         "Learning for Dummies:",
+        "Eldritch:",
+        "Lovecraft:",
+        "The Horrors of",
     };
 
     public static readonly List<string> topics = new List<string>
@@ -31,6 +34,14 @@ public class BookData
         "sex",
         "carpentry",
         "toilets",
+        "hunting",
+        "deffence",
+        "Dunwich",
+        "Color",
+        "Caravans",
+        "Broken Arms",
+        "The Three Seas",
+        "For Dummies",
     };
 
 
@@ -51,6 +62,9 @@ public class BookData
         "Volume IV",
         "Volume V",
         "Volume VI",
+        "Volume LXIX",
+        "Volume CDXX",
+        "Volume MCCCXXXVII",
     };
 
     public static string RandomTitle()
