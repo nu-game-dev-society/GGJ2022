@@ -1,11 +1,15 @@
 using System;
 using System.Linq;
 using UnityEngine;
+using TMPro;
 
 public class RecipeController : MonoBehaviour
 {
     [SerializeField]
     private Transform itemSpawnsParent;
+
+    [SerializeField]
+    private TextMeshPro recipeCard;
 
     // Start is called before the first frame update
     void Start()
@@ -22,9 +26,11 @@ public class RecipeController : MonoBehaviour
         }
 
         // Log the books we need to display
+        recipeCard.text = "";
         foreach (BookController book in ingredientBooks)
         {
             Debug.Log(book.GetName());
+            recipeCard.text += book.GetName() + "\n";
         }
 
         if (itemSpawnsParent == null)
