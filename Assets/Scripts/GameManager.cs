@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public List<IngredientData> PossibleIngredients = new List<IngredientData>();
 
     public const int NUM_EXPECTED_INGREDIENTS = 4;
-    public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
+    public List<IngredientData> ExpectedIngredients = new List<IngredientData>();
     public List<string> Clues { get; private set; } = new List<string>();
     [HideInInspector]
     public CauldronController cauldronController;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            Initialise();
+            //Initialise();
         }
     }
 
