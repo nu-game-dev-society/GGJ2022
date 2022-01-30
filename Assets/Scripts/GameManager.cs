@@ -19,10 +19,12 @@ public class GameManager : MonoBehaviour
 
     public const int NUM_EXPECTED_INGREDIENTS = 4;
     public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
+    public List<string> Clues { get; private set; } = new List<string>();
 
     CauldronController cauldronController;
 
     public static GameManager Instance;
+
 
     void Awake()
     {
@@ -46,6 +48,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("InitialiseInstance");
 
         this.GenerateExpectedIngredients();
+        this.CollateRiddles();
     }
 
     void InitialiseExpectedIngredients()
@@ -101,6 +104,16 @@ public class GameManager : MonoBehaviour
         }
 
         this.ExpectedIngredients = randomNumbers.Select(index => this.PossibleIngredients.ElementAt(index)).ToList();
+    }
+
+    void CollateRiddles()
+    {
+        Clues = new List<string>();
+
+        foreach (IngredientData ingredient in PossibleIngredients)
+        {
+            Clues.AddRange(ingredient.Clues);
+        }
     }
 
     // useful in cases like rather than having to set all the scriptable objs in properties panel, just search db for them

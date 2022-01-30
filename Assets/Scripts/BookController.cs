@@ -52,6 +52,7 @@ public class BookController : MonoBehaviour, IInteractable, IAudioEvent
         subtitle = BookData.RandomSubTitle();
         cover.text = title + "\n\n\n\n\n\n" + subtitle;
         bind.text = title.Replace("\n", " ") + "\n" + subtitle;
+        inside.text = BookData.RandomContent();
         meshRenderer.sharedMaterial = materials[Random.Range(0, materials.Length - 1)];
         basicRenderer.sharedMaterial = meshRenderer.sharedMaterial;
         gameObject.name = GetName();
