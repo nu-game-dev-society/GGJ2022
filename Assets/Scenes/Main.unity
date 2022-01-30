@@ -259,6 +259,7 @@ MonoBehaviour:
   - {fileID: 7097290070187161581}
   - {fileID: 139864769}
   - {fileID: 498634517}
+  - {fileID: 453314114}
 --- !u!114 &9014134
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2549,6 +2550,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3989231187778330076, guid: a67f34b985082f640a7e965430d59fd5, type: 3}
+      propertyPath: defaultRollInterval
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3989231187778330077, guid: a67f34b985082f640a7e965430d59fd5, type: 3}
       propertyPath: m_RootOrder
       value: 27
@@ -4699,6 +4704,7 @@ GameObject:
   - component: {fileID: 453314112}
   - component: {fileID: 453314111}
   - component: {fileID: 453314113}
+  - component: {fileID: 453314114}
   m_Layer: 0
   m_Name: CurvedWall (2)
   m_TagString: Untagged
@@ -4783,6 +4789,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1611998366282376617, guid: 866388decd6ba46adb11cf5e0bf88f7f, type: 3}
+--- !u!114 &453314114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453314109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3905e50e9fd6581428aaffce6e3671cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &453422975
 PrefabInstance:
   m_ObjectHideFlags: 0
