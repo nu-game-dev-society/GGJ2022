@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ingredientName: Green Potion
   ingredientClues:
-  - Of Andrew, George, David and Patrick, the last one
+  - Of Andrew, George, David and Patrick, the latter would be most proud. Add me
+    to the pot and sing a song out loud.
   ingredientModel: {fileID: 4045635392830457268, guid: e20352937c23049de96f1c491030cf44, type: 3}
