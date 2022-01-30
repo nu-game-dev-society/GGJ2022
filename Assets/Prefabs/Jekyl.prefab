@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cc: {fileID: 4187890194337184542}
-  cam: {fileID: 4187890193267734660}
+  camTransform: {fileID: 4187890193267734660}
   speed: 4
   heldItemRoot: {fileID: 2219802761775920750}
   audioSource: {fileID: 8980637301156440354}
