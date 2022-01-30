@@ -10,12 +10,12 @@ public class GameManager : MonoBehaviour
 {
     public delegate void CorrectIngredientAddedToCauldronHandler();
     public event CorrectIngredientAddedToCauldronHandler CorrectIngredientAddedToCauldron;
-        
+
     public delegate void IncorrectIngredientAddedToCauldronHandler();
     public event IncorrectIngredientAddedToCauldronHandler IncorrectIngredientAddedToCauldron;
 
-    
-    public List<IngredientData> PossibleIngredients  = new List<IngredientData>();
+
+    public List<IngredientData> PossibleIngredients = new List<IngredientData>();
 
     public const int NUM_EXPECTED_INGREDIENTS = 4;
     public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     public CauldronController cauldronController;
 
     public static GameManager Instance;
-
+    public GameObject DeathScreen;
 
     void Awake()
     {
@@ -57,12 +57,12 @@ public class GameManager : MonoBehaviour
         this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
         Debug.Log("InitialiseExpectedIngredients");
 #endif
-    }   
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        if(Application.isPlaying)
+        if (Application.isPlaying)
         {
             Initialise();
         }
@@ -70,6 +70,8 @@ public class GameManager : MonoBehaviour
 
     void Initialise()
     {
+        if (DeathScreen == null)
+            DeathScreen = GameObject.Find("Canvas/DeathScreen");
         this.cauldronController = FindObjectOfType<CauldronController>();
         this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
         this.cauldronController.IncorrectIngredientAdded += OnIncorrectIngredientAddedToCauldron;
@@ -83,6 +85,15 @@ public class GameManager : MonoBehaviour
     private void OnIncorrectIngredientAddedToCauldron()
     {
         this.IncorrectIngredientAddedToCauldron?.Invoke();
+        PlayerDeath();
+    }
+
+    public void PlayerDeath()
+    {
+        DeathScreen.SetActive(true);
+        ScreenFader.instance.SetToBlack(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     void GenerateExpectedIngredients()
@@ -91,7 +102,7 @@ public class GameManager : MonoBehaviour
         // Init the array to -1
         for (int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
         {
-            randomNumbers[i] = -1; 
+            randomNumbers[i] = -1;
         }
 
         for (int i = 0; i < NUM_EXPECTED_INGREDIENTS; i++)
@@ -125,7 +136,7 @@ public class GameManager : MonoBehaviour
     public static IEnumerable<T> GetAllInstances<T>() where T : UnityEngine.Object
         => AssetDatabase.FindAssets($"t:{typeof(T).Name}")
             .Select(assetGuid => AssetDatabase.GUIDToAssetPath(assetGuid))
-            .Select(assetPath => AssetDatabase.LoadAssetAtPath<T>(assetPath)); 
+            .Select(assetPath => AssetDatabase.LoadAssetAtPath<T>(assetPath));
 #endif
 
 
