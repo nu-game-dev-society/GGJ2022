@@ -20,8 +20,8 @@ public class GameManager : MonoBehaviour
     public const int NUM_EXPECTED_INGREDIENTS = 4;
     public List<IngredientData> ExpectedIngredients { get; private set; } = new List<IngredientData>();
     public List<string> Clues { get; private set; } = new List<string>();
-
-    CauldronController cauldronController;
+    [HideInInspector]
+    public CauldronController cauldronController;
 
     public static GameManager Instance;
 
