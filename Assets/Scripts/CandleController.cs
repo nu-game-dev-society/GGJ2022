@@ -30,6 +30,14 @@ public class CandleController : MonoBehaviour
         return candle;
     }
 
+    public static void BlowOutAll()
+    {
+        foreach(Candle candle in candles)
+        {
+            candle.on = false;
+        }
+    }
+
     public static void SetAll(bool onState)
     {
         foreach (Candle candle in candles)
