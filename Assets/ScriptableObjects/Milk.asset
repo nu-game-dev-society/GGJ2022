@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
-  m_Name: Potion bottle
+  m_Name: Milk
   m_EditorClassIdentifier: 
-  ingredientName: Potion bottle
+  ingredientName: Milk
   ingredientClues:
-  - Potion bottle thing
+  - Grab the fuel of the calf, to ward away your lesser half.
   ingredientModel: {fileID: 919132149155446097, guid: f6d9886227735ae43bb181bf14c69088, type: 3}

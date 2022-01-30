@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
   m_Name: Golden Elixir
   m_EditorClassIdentifier: 
-  ingredientName: Flask
+  ingredientName: Golden Elixir
   ingredientClues:
   - Grab the elixir of the fool. Just one drop, not a drool.
   ingredientModel: {fileID: 8305523573745711695, guid: 5e84c9714488243b992be1e48ef3cb88, type: 3}
