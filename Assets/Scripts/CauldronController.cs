@@ -140,6 +140,8 @@ public class CauldronController : MonoBehaviour, IInteractable
         {
             this.AddReceivedIngredient(ingredient.Data);
             interactor.DropItem();
+            ingredient.transform.parent = null;
+            ingredient.gameObject.SetActive(false);
         }
         else
         {
@@ -151,7 +153,6 @@ public class CauldronController : MonoBehaviour, IInteractable
     public bool canInteract = true;
     public bool CanInteract(PlayerController interactor)
     {
-        Debug.Log(canInteract);
-        return canInteract;
+        return interactor.currentItem is IngredientController && canInteract;
     }
 }
