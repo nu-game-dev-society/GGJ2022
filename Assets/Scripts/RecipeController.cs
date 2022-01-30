@@ -33,7 +33,7 @@ public class RecipeController : MonoBehaviour
         foreach (BookController book in ingredientBooks)
         {
             Debug.Log(book.GetName());
-            recipeCard.text += book.GetZone() + "\n";
+            recipeCard.text += book.GetZone() + " - " + book.GetName() + "\n";
         }
 
         if (itemSpawnsParent == null)
