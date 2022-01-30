@@ -81,14 +81,14 @@ public class LadderController : MonoBehaviour, IInteractable
 
             if (Input.GetMouseButton(1))
             {
-                this.player.SetFovMultiplier(0.5f);
+                this.player?.SetFovMultiplier(0.5f);
             }
             else
             {
-                this.player.SetFovMultiplier(1f);
+                this.player?.SetFovMultiplier(1f);
             }
 
-            this.player.UpdateFov();
+            this.player?.UpdateFov();
         }
         else
         {
@@ -101,7 +101,7 @@ public class LadderController : MonoBehaviour, IInteractable
     bool firstFrameEnabled = false;
     private void PlayerLadderClimb()
     {
-        if (isAtBottom && (Input.GetKey(KeyCode.S) || (firstFrameEnabled == false && Input.GetKeyDown(KeyCode.E))))
+        if (isAtBottom && player && (Input.GetKey(KeyCode.S) || (firstFrameEnabled == false && Input.GetKeyDown(KeyCode.E))))
         {
             Interact(player);
         }
