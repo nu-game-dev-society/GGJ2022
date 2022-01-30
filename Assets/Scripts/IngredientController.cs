@@ -14,4 +14,11 @@ public class IngredientController : MonoBehaviour, IInteractable
     public IngredientData Data;
 
     public AudioClip Sound;
+
+    public Quaternion initialRotation { get; private set; }
+
+    void Start()
+    {
+        initialRotation = transform.rotation;
+    }
 }
