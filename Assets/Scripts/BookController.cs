@@ -29,9 +29,11 @@ public class BookController : MonoBehaviour, IInteractable
 
     public Collider collider;
 
+    public AudioClip pickUpSfx;
+
     public void Interact(PlayerController interactor)  
     {
-        interactor.Pickup(this);
+        interactor.Pickup(this, pickUpSfx);
     }
      
     internal void SetContents(string contents)

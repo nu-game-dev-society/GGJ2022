@@ -297,6 +297,7 @@ MonoBehaviour:
   openClip: {fileID: 8300000, guid: 03f5751a1b12041ed8457e06b3b48753, type: 3}
   closeClip: {fileID: 8300000, guid: b4be9df77ca7740b7b0f7500a6923040, type: 3}
   collider: {fileID: 0}
+  pickUpSfx: {fileID: 8300000, guid: 7268b03a5871145d081fc6d7e0ff7c18, type: 3}
 --- !u!82 &7863601211728297895
 AudioSource:
   m_ObjectHideFlags: 0

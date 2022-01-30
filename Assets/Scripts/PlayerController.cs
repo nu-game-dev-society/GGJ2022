@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     float startFoV;
     Camera cam;
 
+    
+
     void Start()
     {
         cc = GetComponent<CharacterController>();
@@ -90,7 +92,7 @@ public class PlayerController : MonoBehaviour
         lastStepClip = i;
     }
 
-    public void Pickup(IInteractable interactable)
+    public void Pickup(IInteractable interactable, AudioClip sound)
     {
         if (this.currentItem == null)
         {
@@ -98,6 +100,8 @@ public class PlayerController : MonoBehaviour
 
             if (this.currentItem is MonoBehaviour monoBehaviour)
             {
+                audioSource.PlayOneShot(sound);
+
                 monoBehaviour.gameObject.transform.parent = this.heldItemRoot;
                 monoBehaviour.gameObject.transform.localPosition = Vector3.zero;
 
