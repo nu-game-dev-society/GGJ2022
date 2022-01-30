@@ -38,6 +38,12 @@ public class RecipeController : MonoBehaviour
         Transform[] itemSpawns = itemSpawnsParent.GetComponentsInChildren<Transform>();
         foreach (Transform position in itemSpawns)
         {
+            // Ignore the parent pos
+            if (position == itemSpawnsParent)
+            {
+                continue;
+            }
+
             IngredientData data;
             if (spawnedCount < GameManager.Instance.ExpectedIngredients.Count)
             {
