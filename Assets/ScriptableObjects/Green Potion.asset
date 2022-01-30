@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
-  m_Name: Red potion 2
+  m_Name: Green Potion
   m_EditorClassIdentifier: 
-  ingredientName: Flask
+  ingredientName: Green Potion
   ingredientClues:
-  - flask
-  ingredientModel: {fileID: 8305523573745711695, guid: 5e84c9714488243b992be1e48ef3cb88, type: 3}
+  - Of Andrew, George, David and Patrick, the last one
+  ingredientModel: {fileID: 4045635392830457268, guid: e20352937c23049de96f1c491030cf44, type: 3}
