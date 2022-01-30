@@ -36,8 +36,7 @@ public class HydeController : MonoBehaviour
         nextRollTime = Time.time + defaultRollInterval; //if no candles left, 5 seconds to 
         if (CandleController.CountLitCandles() == 0)
         {
-            //Lose();
-            Debug.Log("You lose");
+            GameManager.Instance.PlayerDeath();
         }
         else
         {

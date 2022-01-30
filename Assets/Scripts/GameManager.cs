@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [ExecuteAlways]
 public class GameManager : MonoBehaviour
@@ -91,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDeath()
     {
+        FindObjectOfType<PlayerController>().GameOver();
         DeathScreen.SetActive(true);
         ScreenFader.instance.SetToBlack(true);
         Cursor.visible = true;
@@ -128,6 +130,16 @@ public class GameManager : MonoBehaviour
         {
             Clues.AddRange(ingredient.Clues);
         }
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void LoadMenuScene()
+    {
+        SceneManager.LoadScene(0);
     }
 
 

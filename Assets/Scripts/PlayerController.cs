@@ -31,8 +31,6 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         startFoV = cam.fieldOfView;
         targetFoV = cam.fieldOfView;
-
-        GameManager.Instance.cauldronController.IncorrectIngredientAdded += GameOver;
     }
 
     internal void DropItem()

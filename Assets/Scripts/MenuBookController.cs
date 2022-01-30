@@ -21,6 +21,7 @@ public class MenuBookController : MonoBehaviour, IAudioEvent
 
     public IEnumerator Open(bool state = true)
     {
+        yield return new WaitForSeconds(1);
         anim.SetBool("Open", state);
         audioSource.Play();
         yield return new WaitForSeconds(anim.GetCurrentAnimatorStateInfo(0).length);
@@ -61,9 +62,9 @@ public class MenuBookController : MonoBehaviour, IAudioEvent
     private async Task CloseBook()
     {
         anim.SetBool("Open", false);
-        await Task.Delay(500);
+        await Task.Delay(1000);
         ScreenFader.instance?.SetToBlack(true);
-        await Task.Delay(1500);
+        await Task.Delay(1000);
         Debug.Log("Book Close");
 
     }
