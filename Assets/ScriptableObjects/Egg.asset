@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82b2ba243fe7d3c42a933b8e186f412f, type: 3}
-  m_Name: Flower
+  m_Name: Egg
   m_EditorClassIdentifier: 
-  ingredientName: Flower
+  ingredientName: Egg
   ingredientClues:
-  - You bury me when I am alive, and dig me up when I die, but add me to the pot
-    and you'll be closer to your goal.
-  - I enjoy a light meal but cannot eat. Stir me in to progress the cure.
-  ingredientModel: {fileID: 0}
+  - Add the ingredient that must be broken to be useful.
+  - Stir in the case which protects a golden treasure without a lid, key or hinge.
+  ingredientModel: {fileID: 3464309411108501063, guid: 61e4f9f3089e9804481be82fa50c7699, type: 3}
