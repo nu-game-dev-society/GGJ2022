@@ -7,9 +7,11 @@ public class IngredientController : MonoBehaviour, IInteractable
 {
     public void Interact(PlayerController interactor)
     {
-        interactor.Pickup(this);
+        interactor.Pickup(this, Sound);
     }
     public bool CanInteract(PlayerController interactor) => true;
 
     public IngredientData Data;
+
+    public AudioClip Sound;
 }

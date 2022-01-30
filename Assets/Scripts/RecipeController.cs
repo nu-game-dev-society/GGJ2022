@@ -11,6 +11,9 @@ public class RecipeController : MonoBehaviour
     [SerializeField]
     private TextMeshPro recipeCard;
 
+    [SerializeField]
+    private AudioClip pickUpSfx;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +33,7 @@ public class RecipeController : MonoBehaviour
         foreach (BookController book in ingredientBooks)
         {
             Debug.Log(book.GetName());
-            recipeCard.text += book.GetName() + "\n";
+            recipeCard.text += book.GetZone() + "\n";
         }
 
         if (itemSpawnsParent == null)
@@ -62,7 +65,9 @@ public class RecipeController : MonoBehaviour
 
             GameObject item = Instantiate(data.Model);
             item.transform.position = position.position;
-            item.AddComponent<IngredientController>().Data = data;
+            IngredientController ingredient = item.AddComponent<IngredientController>();
+            ingredient.Data = data;
+            ingredient.Sound = pickUpSfx;
 
             spawnedCount++;
         }

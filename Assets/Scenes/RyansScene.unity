@@ -403,6 +403,17 @@ Transform:
   m_Father: {fileID: 1336837626}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &278907187 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8425419648393536291, guid: 3f582f33c5b27e540b3891920adda8e1, type: 3}
+  m_PrefabInstance: {fileID: 3773976669770297444}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &285336691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -424,7 +435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.111
       objectReference: {fileID: 0}
     - target: {fileID: 3209777543082871135, guid: eb13c42953740324fbbf34cb8b5edf30, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2683,6 +2694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSpawnsParent: {fileID: 1336837626}
+  recipeCard: {fileID: 278907187}
 --- !u!114 &2110821451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2696,10 +2708,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PossibleIngredients:
+  - {fileID: 11400000, guid: 33f1e80f45402984c90007aab776d9f1, type: 2}
+  - {fileID: 11400000, guid: a3e8460c0ae12e14bb0d42d142399b46, type: 2}
+  - {fileID: 11400000, guid: 60e94d9fa72319545aff5398cccda975, type: 2}
   - {fileID: 11400000, guid: 422afb19c92af524f97eb91ff9c3fcd5, type: 2}
   - {fileID: 11400000, guid: a361451a718d48647880ad2c9e180c24, type: 2}
   - {fileID: 11400000, guid: af84d9217e70ae14a8bccbdaa82e823d, type: 2}
-  - {fileID: 11400000, guid: 60e94d9fa72319545aff5398cccda975, type: 2}
 --- !u!1001 &3773976669770297444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2754,6 +2768,14 @@ PrefabInstance:
     - target: {fileID: 1830793124240787592, guid: 3f582f33c5b27e540b3891920adda8e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425419648393536291, guid: 3f582f33c5b27e540b3891920adda8e1, type: 3}
+      propertyPath: m_fontSize
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8425419648393536291, guid: 3f582f33c5b27e540b3891920adda8e1, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f582f33c5b27e540b3891920adda8e1, type: 3}

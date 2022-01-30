@@ -21,6 +21,7 @@ public class BookController : MonoBehaviour, IInteractable
 
     private string title;
     private string subtitle;
+    private string zone;
     private Animator animator;
 
     public AudioSource audioSource;
@@ -31,11 +32,11 @@ public class BookController : MonoBehaviour, IInteractable
 
     public AudioClip pickUpSfx;
 
-    public void Interact(PlayerController interactor)  
+    public void Interact(PlayerController interactor)
     {
         interactor.Pickup(this, pickUpSfx);
     }
-     
+
     internal void SetContents(string contents)
     {
         inside.text = contents;
@@ -51,9 +52,11 @@ public class BookController : MonoBehaviour, IInteractable
         subtitle = BookData.RandomSubTitle();
         cover.text = title + "\n\n\n\n\n\n" + subtitle;
         bind.text = title.Replace("\n", " ") + "\n" + subtitle;
-        meshRenderer.sharedMaterial = materials[Random.Range(0, materials.Length - 1)]; 
+        meshRenderer.sharedMaterial = materials[Random.Range(0, materials.Length - 1)];
         basicRenderer.sharedMaterial = meshRenderer.sharedMaterial;
         gameObject.name = GetName();
+
+        zone = transform.parent.name;
     }
 
     public IEnumerator Open(bool state = true)
@@ -65,6 +68,11 @@ public class BookController : MonoBehaviour, IInteractable
     public string GetName()
     {
         return title.Replace("\n", " ").Trim() + ": " + subtitle;
+    }
+
+    public string GetZone()
+    {
+        return zone;
     }
 
     [ExecuteAlways]
