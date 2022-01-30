@@ -46,8 +46,8 @@ public class PlayerController : MonoBehaviour
         Vector3 gravity = cc.isGrounded ? Vector3.zero : 9.8f * Time.deltaTime * Vector3.down;
         cc.Move((speed * Time.deltaTime * dir) + gravity);
 
-        transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X") * Time.deltaTime, 0));
-        mouseY += Input.GetAxis("Mouse Y") * Time.deltaTime;
+        transform.Rotate(new Vector3(0, Input.GetAxisRaw("Mouse X"), 0));
+        mouseY += Input.GetAxis("Mouse Y");
         mouseY = Mathf.Clamp(mouseY, -60, 60);
         camTransform.localEulerAngles = new Vector3(-mouseY, 0, 0);
 
@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        float targetFoV =  Input.GetMouseButton(1)
+        float targetFoV = Input.GetMouseButton(1)
             ? startFoV * 0.5f
             : startFoV;
 
