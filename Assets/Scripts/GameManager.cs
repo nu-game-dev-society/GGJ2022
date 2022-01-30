@@ -23,10 +23,13 @@ public class GameManager : MonoBehaviour
     public List<string> Clues { get; private set; } = new List<string>();
     [HideInInspector]
     public CauldronController cauldronController;
+    [HideInInspector]
+    public PlayerController player;
 
     public static GameManager Instance;
     public GameObject DeathScreen;
     public GameObject WinScreen;
+    public GameObject PauseScreen;
 
     void Awake()
     {
@@ -72,8 +75,7 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.Log("We closing now!");
-            Application.Quit();
+            Pause(!paused);
         }
     }
 
@@ -82,8 +84,7 @@ public class GameManager : MonoBehaviour
         this.GenerateExpectedIngredients();
         this.CollateRiddles();
 
-        if (DeathScreen == null)
-            DeathScreen = GameObject.Find("Canvas/DeathScreen");
+        this.player = FindObjectOfType<PlayerController>();
         this.cauldronController = FindObjectOfType<CauldronController>();
         this.cauldronController.CorrectIngredientAdded += OnCorrectIngredientAddedToCauldron;
         this.cauldronController.IncorrectIngredientAdded += OnIncorrectIngredientAddedToCauldron;
@@ -94,10 +95,21 @@ public class GameManager : MonoBehaviour
     {
         PlayerWin();
     }
+    bool paused = false;
+    public void Pause(bool v)
+    {
+        paused = v;
+        PauseScreen.SetActive(v);
+        ScreenFader.instance.SetToBlack(v);
+        Time.timeScale = v ? 0 : 1;
+        player?.SetInUse(!v);
+        Cursor.visible = v;
+        Cursor.lockState = v ? CursorLockMode.Confined : CursorLockMode.Locked;
+    }
 
     private void PlayerWin()
     {
-        FindObjectOfType<PlayerController>().GameOver();
+        player?.GameOver();
         WinScreen.SetActive(true);
         ScreenFader.instance.SetToBlack(true);
         Cursor.visible = true;
@@ -117,7 +129,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDeath()
     {
-        FindObjectOfType<PlayerController>().GameOver();
+        player?.GameOver();
         DeathScreen.SetActive(true);
         ScreenFader.instance.SetToBlack(true);
         Cursor.visible = true;

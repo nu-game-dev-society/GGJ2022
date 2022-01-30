@@ -282,8 +282,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9e115b5651f10ff48b2583ec01ae0782, type: 2}
   ExpectedIngredients: []
   cauldronController: {fileID: 0}
+  player: {fileID: 0}
   DeathScreen: {fileID: 1699287349}
   WinScreen: {fileID: 489808186}
+  PauseScreen: {fileID: 0}
 --- !u!4 &9014135
 Transform:
   m_ObjectHideFlags: 0
@@ -5227,6 +5229,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 905498437, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 905498437, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9014134}
+    - target: {fileID: 905498437, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 1925515484, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 9014134}
     - target: {fileID: 110144678972551603, guid: 7fecb60309d6f2c42b5540a8d3485e36, type: 3}
       propertyPath: m_Name
       value: Canvas

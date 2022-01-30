@@ -22,7 +22,7 @@ public class ScreenFader : MonoBehaviour
     void Update()
     {
         group.alpha = value;
-        value = Mathf.Clamp01(toBlack ? (value + Time.deltaTime) : (value - Time.deltaTime));
+        value = Mathf.Clamp01(toBlack ? (value + Time.unscaledDeltaTime) : (value - Time.unscaledDeltaTime));
     }
     public void SetToBlack(bool v) => toBlack = v;
 }
