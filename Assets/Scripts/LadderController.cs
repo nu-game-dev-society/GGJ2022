@@ -36,6 +36,9 @@ public class LadderController : MonoBehaviour, IInteractable
 
         collider.enabled = !inUse;
 
+        if (!inUse && audiosource.isPlaying)
+            audiosource.Stop();
+
 
         if (!inUse)
         {
