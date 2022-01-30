@@ -49,7 +49,7 @@ public class LadderController : MonoBehaviour, IInteractable
 
         player.SetInUse(!inUse);
 
-        lookRotation = player.cam.localEulerAngles;
+        lookRotation = player.camTransform.localEulerAngles;
 
         player.transform.parent = inUse ? playerParent : null;
 
@@ -120,7 +120,7 @@ public class LadderController : MonoBehaviour, IInteractable
             lookRotation.y += Input.GetAxisRaw("Mouse X") * Time.deltaTime;
             lookRotation.x -= Input.GetAxis("Mouse Y") * Time.deltaTime;
             lookRotation.x = Mathf.Clamp(lookRotation.x, -60, 60);
-            player.cam.localEulerAngles = lookRotation;
+            player.camTransform.localEulerAngles = lookRotation;
         }
     }
 
