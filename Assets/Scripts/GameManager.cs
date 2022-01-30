@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     void InitialiseExpectedIngredients()
     {
 #if UNITY_EDITOR
-        this.PossibleIngredients = GetAllInstances<IngredientData>().ToList();
+        this.PossibleIngredients = GetAllInstances<IngredientData>().Where(x => x.Model != null).ToList();
         Debug.Log("InitialiseExpectedIngredients");
 #endif
     }
