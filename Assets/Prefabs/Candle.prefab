@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 365002025321617034}
   - component: {fileID: 3932785740501115388}
   - component: {fileID: 5810065055638737018}
+  - component: {fileID: 6076784984194889871}
   m_Layer: 0
   m_Name: Square (2)
   m_TagString: Untagged
@@ -102,6 +103,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6076784984194889871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512073050835220533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fbcb7ebcee6ff479c01e2088f5ea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3209777542655665880
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +382,7 @@ GameObject:
   - component: {fileID: 7022039179210760542}
   - component: {fileID: 5558874581181038896}
   - component: {fileID: 4714597256418452763}
+  - component: {fileID: 9012179413338487900}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -460,6 +474,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &9012179413338487900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5686670252239000092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fbcb7ebcee6ff479c01e2088f5ea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6833768158519076878
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +497,7 @@ GameObject:
   - component: {fileID: 5303174125816025986}
   - component: {fileID: 8226390547550266125}
   - component: {fileID: 8787159947666625199}
+  - component: {fileID: 8796893125310991088}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -562,6 +589,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8796893125310991088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6833768158519076878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fbcb7ebcee6ff479c01e2088f5ea94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3009972287420011497
 PrefabInstance:
   m_ObjectHideFlags: 0
