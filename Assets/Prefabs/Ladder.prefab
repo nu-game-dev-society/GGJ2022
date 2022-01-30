@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inUse: 0
-  speed: 3
+  speed: 1.5
   playerParent: {fileID: 1952075566433783411}
   topOfLadder: {fileID: 1952075567872570826}
   ladderStartPos: {x: -5.32, y: 0.208, z: -2.953}
